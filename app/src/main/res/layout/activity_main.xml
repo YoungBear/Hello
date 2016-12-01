@@ -15,7 +15,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Hello"/>
+
+    <Button
+        android:id="@+id/btn_table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/table_layout_name"/>
 
     
 </LinearLayout>

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import com.example.hello.activity.TableLayoutActivity;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +20,9 @@ public class MainActivity extends Activity {
     }
 
     private void initView() {
+        Button btnTableLayout = (Button) findViewById(R.id.btn_table_layout);
+
+        btnTableLayout.setOnClickListener(btnClickListener);
 
     }
 
@@ -28,6 +34,11 @@ public class MainActivity extends Activity {
     View.OnClickListener btnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_table_layout:
+                    startActivity(TableLayoutActivity.class);
+                    break;
+            }
         }
     };
 

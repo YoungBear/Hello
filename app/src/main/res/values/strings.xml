@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Hello</string>
+    <string name="table_layout_name">TableLayout Activity</string>
 </resources>
