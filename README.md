@@ -29,3 +29,73 @@ column 列
 shrink 收缩
 
 stretch 拉伸
+
+##DragView
+
+###View的位置参数
+参考：
+http://blog.csdn.net/jason0539/article/details/42743531
+
+　　View的位置主要由它的四个顶点来决定，分别对应于View的四个属性：top,left,right,bottom。在Android中，x轴和y轴的正方向分别为右和下，不仅仅是Android，大部分显示系统都是按照这个标准来定义坐标系的。
+
+　　从Android3.0开始，View增加了额外几个参数：x，y，translationX，translationY。其中x和y是View左上角的坐标，而translationX和translationY是View左上角相对于父容器的偏移量。这几个参数也是相对于父容器的坐标，并且translationX和translationY的默认值是0，和View的四个基本的位置参数一样，View也为它们提供了get/set方法，这个急参数的换算关系如下所示：
+
+　　　　　　　　x = left + translationX
+
+　　　　　　　　y = top + translationY
+
+　　需要注意的是，View在平移的过程中，top和left表示的是原始左上角的位置信息，其值并不会发生改变，此时发生改变的是x，y，translationX和translationY这四个参数。
+
+![](http://img.blog.csdn.net/20150115155321445?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamFzb24wNTM5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+　　View获取自身坐标：getLeft(),getTop(),getRight(),getBottom()
+
+　　View获取自身宽高：getHeight(),getWidth()
+
+　　motionEvent获取坐标：getX(),getY(),getRawX(),getRawY()
+
+　　getX()：获取点击事件相对控件左边的x轴坐标，即点击事件距离控件左边的距离
+
+　　getY()：获取点击事件相对控件顶边的y轴坐标，即点击事件距离控件顶边的距离
+
+　　getRawX()：获取点击事件相对整个屏幕左边的x轴坐标，即点击事件距离整个屏幕左边的距离
+
+　　getRawY()：获取点击事件相对整个屏幕顶边的y轴坐标，即点击事件距离整个屏幕顶边的距离
+
+　　实现一个跟手滑动的效果，自定义View，拖动它可以让它在整个屏幕上随意滑动。重写它的onTouchEvent方法并处理ACTION_MOVE事件，根据两次滑动之间的距离就可以实现他的滑动了。这里采用动画的方式。
+
+```
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //获取点击事件的坐标，在屏幕中的坐标，使用getRawX()/getRawY()
+        int x = (int) event.getRawX();
+        int y = (int) event.getRawY();
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                break;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                int deltaX = x - mLastX;
+                int deltaY = y - mLastY;
+                Log.d(TAG, "move, deltaX: " + deltaX + ", deltaY: " + deltaY);
+                int translationX = (int) (getTranslationX() + deltaX);
+                int translationY = (int) (getTranslationY() + deltaY);
+                //使用位移动画
+                setTranslationX(translationX);
+                setTranslationY(translationY);
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                break;
+            }
+        }
+        //记录上次的坐标
+        mLastX = x;
+        mLastY = y;
+        return true;
+    }
+```
+
+　　通过上述代码可以看出，这一全屏滑动的效果实现起来相当简单。首先，通过getRawX和getRawY方法来获取手指当前的坐标，注意不能使用getX和getY方法，因为这个是要全屏滑动的，所以需要获取当前点击事件在屏幕中的坐标而不是相当于View本身的坐标；其次，我们要得到两次滑动之间的位移，有了这个位移就可以移动当前的View，移动方法采用View的setTranslationX和setTranslationY，只能在Android3.0及其以上版本上使用。
+

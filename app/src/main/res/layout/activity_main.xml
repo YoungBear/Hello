@@ -24,5 +24,11 @@
         android:layout_height="wrap_content"
         android:text="@string/table_layout_name"/>
 
+    <Button
+        android:id="@+id/btn_drag_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drag_view_name"/>
+
     
 </LinearLayout>

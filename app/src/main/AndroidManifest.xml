@@ -21,6 +21,10 @@
             android:name=".activity.TableLayoutActivity"
             android:label="@string/table_layout_name">
         </activity>
+        <activity
+            android:name=".activity.DragViewActivity"
+            android:label="@string/drag_view_name">
+        </activity>
     </application>
 
 </manifest>

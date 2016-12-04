@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.TableLayoutActivity;
 
 public class MainActivity extends Activity {
@@ -21,8 +22,10 @@ public class MainActivity extends Activity {
 
     private void initView() {
         Button btnTableLayout = (Button) findViewById(R.id.btn_table_layout);
+        Button btnDragView = (Button) findViewById(R.id.btn_drag_view);
 
         btnTableLayout.setOnClickListener(btnClickListener);
+        btnDragView.setOnClickListener(btnClickListener);
 
     }
 
@@ -37,6 +40,9 @@ public class MainActivity extends Activity {
             switch (v.getId()) {
                 case R.id.btn_table_layout:
                     startActivity(TableLayoutActivity.class);
+                    break;
+                case R.id.btn_drag_view:
+                    startActivity(DragViewActivity.class);
                     break;
             }
         }
