@@ -99,3 +99,14 @@ http://blog.csdn.net/jason0539/article/details/42743531
 
 　　通过上述代码可以看出，这一全屏滑动的效果实现起来相当简单。首先，通过getRawX和getRawY方法来获取手指当前的坐标，注意不能使用getX和getY方法，因为这个是要全屏滑动的，所以需要获取当前点击事件在屏幕中的坐标而不是相当于View本身的坐标；其次，我们要得到两次滑动之间的位移，有了这个位移就可以移动当前的View，移动方法采用View的setTranslationX和setTranslationY，只能在Android3.0及其以上版本上使用。
 
+##AndroidStudio插件ButterKnife
+Android Butterknife Zelezny这个插件，可以以图形化的操作添加Butterkinfe注解。而Butterkinfe注解可以代替完成view的findViewById的操作，这样会加快开发速度。
+
+使用步骤：
+
+1. 在AndroidStudio上安装Android Butterknife Zelezny插件，完成后重启AS；
+2. 导入butterknife.jar或者在build.gradle添加compile 'com.jakewharton:butterknife:7.0.0'
+3. 在layout资源文件上点击右键，选择Generate 然后选择 Generate ButterKnife Injections，生成对话框，在里边选择需要的控件，可以对其进行命名，添加onClick监听。
+
+![](https://github.com/avast/android-butterknife-zelezny/blob/master/img/zelezny_animated.gif)
+

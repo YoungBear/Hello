@@ -25,6 +25,10 @@
             android:name=".activity.DragViewActivity"
             android:label="@string/drag_view_name">
         </activity>
+        <activity
+            android:name=".activity.ButterKnifeActivity"
+            android:label="@string/butter_knife_name">
+        </activity>
     </application>
 
 </manifest>

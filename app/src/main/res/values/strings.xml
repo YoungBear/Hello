@@ -2,4 +2,5 @@
     <string name="app_name">Hello</string>
     <string name="table_layout_name">TableLayout Activity</string>
     <string name="drag_view_name">DragView Activity</string>
+    <string name="butter_knife_name">ButterKnife Activity</string>
 </resources>
