@@ -110,3 +110,15 @@ Android Butterknife Zelezny这个插件，可以以图形化的操作添加Butte
 
 ![](https://github.com/avast/android-butterknife-zelezny/blob/master/img/zelezny_animated.gif)
 
+##BroadcastReceiver
+
+###只能通过动态注册的广播接收器：
+
+You cannot receive this through components declared in manifests, only by explicitly registering for it with{@link Context#registerReceiver(BroadcastReceiver, IntentFilter) Context.registerReceiver()}
+
+```
+//Intent.java
+public static final String ACTION_SCREEN_OFF = "android.intent.action.SCREEN_OFF";//屏幕关闭
+public static final String ACTION_SCREEN_ON = "android.intent.action.SCREEN_ON";//屏幕点亮
+public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";//每分钟触发一次
+```
