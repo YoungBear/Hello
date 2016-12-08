@@ -42,5 +42,11 @@
         android:layout_height="wrap_content"
         android:text="@string/receiver_learn_name"/>
 
+    <Button
+        android:id="@+id/btn_get_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_time_name"/>
+
     
 </LinearLayout>

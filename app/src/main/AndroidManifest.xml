@@ -29,7 +29,6 @@
             android:name=".activity.ButterKnifeActivity"
             android:label="@string/butter_knife_name">
         </activity>
-
         <activity
             android:name=".activity.ReceiverLearnActivity"
             android:label="@string/receiver_learn_name">
@@ -44,7 +43,10 @@
             </intent-filter>
         </receiver>
 
-
+        <activity
+            android:name=".activity.GetTimeActivity"
+            android:label="@string/get_time_name">
+        </activity>
     </application>
 
 </manifest>

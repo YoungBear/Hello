@@ -122,3 +122,23 @@ public static final String ACTION_SCREEN_OFF = "android.intent.action.SCREEN_OFF
 public static final String ACTION_SCREEN_ON = "android.intent.action.SCREEN_ON";//屏幕点亮
 public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";//每分钟触发一次
 ```
+
+##Get Time
+Android获取时间：(一下时间单位都是毫秒)
+
+###System.currentTimeMillis()：
+
+该时间是基于世界时间的，它返回的是从January 1, 1970 00:00:00 UTC到现在时间已经逝去了多少毫秒，当我设置Android手机的系统时间时，会应该影响该值。
+
+###SystemClock.uptimeMillis()：
+
+它表示的是手机从启动到现在的运行时间，且不包括系统sleep(CPU关闭)的时间，很多系统的内部时间都是基于此。
+
+###SystemClock.elapsedRealtime()：
+
+它表示的是手机从启动到现在的运行时间，且包括系统sleep(CPU关闭)的时间。
+
+###SystemClock.currentThreadTimeMillis()：
+
+在当前线程中已运行的时间。
+

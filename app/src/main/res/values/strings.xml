@@ -4,4 +4,5 @@
     <string name="drag_view_name">DragView Activity</string>
     <string name="butter_knife_name">ButterKnife Activity</string>
     <string name="receiver_learn_name">Receiver Learn Activity</string>
+    <string name="get_time_name">Get Time Activity</string>
 </resources>
