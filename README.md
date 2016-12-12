@@ -142,3 +142,10 @@ Android获取时间：(一下时间单位都是毫秒)
 
 在当前线程中已运行的时间。
 
+##Android通过Intent.ACTION_CLOSE_SYSTEM_DIALOGS监听Home按键事件
+
+参考：http://blog.csdn.net/qiantujava/article/details/50581026
+
+应用层不能直接监听HOME键，而只能使用广播监听。
+在每次点击Home按键时都会发出一个action为Intent.ACTION_CLOSE_SYSTEM_DIALOGS的广播，它是关闭系统Dialog的广播，我们可以通过注册它来监听Home按键消息。
+

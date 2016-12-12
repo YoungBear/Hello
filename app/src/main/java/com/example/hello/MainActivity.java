@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.GetTimeActivity;
+import com.example.hello.activity.HomeKeyActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.TableLayoutActivity;
 
@@ -29,12 +30,14 @@ public class MainActivity extends Activity {
         Button btnButterKnife = (Button) findViewById(R.id.btn_butter_knife);
         Button btnReceiverLearn = (Button) findViewById(R.id.btn_receiver_learn);
         Button btnGetTime = (Button) findViewById(R.id.btn_get_time);
+        Button btnHomeKey = (Button) findViewById(R.id.btn_home_key);
 
         btnTableLayout.setOnClickListener(btnClickListener);
         btnDragView.setOnClickListener(btnClickListener);
         btnButterKnife.setOnClickListener(btnClickListener);
         btnReceiverLearn.setOnClickListener(btnClickListener);
         btnGetTime.setOnClickListener(btnClickListener);
+        btnHomeKey.setOnClickListener(btnClickListener);
 
     }
 
@@ -61,6 +64,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_get_time:
                     startActivity(GetTimeActivity.class);
+                    break;
+                case R.id.btn_home_key:
+                    startActivity(HomeKeyActivity.class);
                     break;
             }
         }

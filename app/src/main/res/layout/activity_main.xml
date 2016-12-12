@@ -48,5 +48,11 @@
         android:layout_height="wrap_content"
         android:text="@string/get_time_name"/>
 
+    <Button
+        android:id="@+id/btn_home_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/home_key_name"/>
+
     
 </LinearLayout>

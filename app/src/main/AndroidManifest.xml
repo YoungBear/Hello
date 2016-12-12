@@ -47,6 +47,14 @@
             android:name=".activity.GetTimeActivity"
             android:label="@string/get_time_name">
         </activity>
+
+        <receiver
+            android:name=".receiver.HomeKeyListener">
+        </receiver>
+
+        <activity android:name=".activity.HomeKeyActivity"
+            android:label="@string/home_key_name">
+        </activity>
     </application>
 
 </manifest>
