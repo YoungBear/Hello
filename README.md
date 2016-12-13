@@ -100,7 +100,7 @@ http://blog.csdn.net/jason0539/article/details/42743531
 　　通过上述代码可以看出，这一全屏滑动的效果实现起来相当简单。首先，通过getRawX和getRawY方法来获取手指当前的坐标，注意不能使用getX和getY方法，因为这个是要全屏滑动的，所以需要获取当前点击事件在屏幕中的坐标而不是相当于View本身的坐标；其次，我们要得到两次滑动之间的位移，有了这个位移就可以移动当前的View，移动方法采用View的setTranslationX和setTranslationY，只能在Android3.0及其以上版本上使用。
 
 ##AndroidStudio插件ButterKnife
-Android Butterknife Zelezny这个插件，可以以图形化的操作添加Butterkinfe注解。而Butterkinfe注解可以代替完成view的findViewById的操作，这样会加快开发速度。
+　　Android Butterknife Zelezny这个插件，可以以图形化的操作添加Butterkinfe注解。而Butterkinfe注解可以代替完成view的findViewById的操作，这样会加快开发速度。
 
 使用步骤：
 
@@ -124,28 +124,60 @@ public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
 ```
 
 ##Get Time
-Android获取时间：(一下时间单位都是毫秒)
+　　Android获取时间：(一下时间单位都是毫秒)
 
 ###System.currentTimeMillis()：
 
-该时间是基于世界时间的，它返回的是从January 1, 1970 00:00:00 UTC到现在时间已经逝去了多少毫秒，当我设置Android手机的系统时间时，会应该影响该值。
+　　该时间是基于世界时间的，它返回的是从January 1, 1970 00:00:00 UTC到现在时间已经逝去了多少毫秒，当我设置Android手机的系统时间时，会应该影响该值。
 
 ###SystemClock.uptimeMillis()：
 
-它表示的是手机从启动到现在的运行时间，且不包括系统sleep(CPU关闭)的时间，很多系统的内部时间都是基于此。
+　　它表示的是手机从启动到现在的运行时间，且不包括系统sleep(CPU关闭)的时间，很多系统的内部时间都是基于此。
 
 ###SystemClock.elapsedRealtime()：
 
-它表示的是手机从启动到现在的运行时间，且包括系统sleep(CPU关闭)的时间。
+　　它表示的是手机从启动到现在的运行时间，且包括系统sleep(CPU关闭)的时间。
 
 ###SystemClock.currentThreadTimeMillis()：
 
-在当前线程中已运行的时间。
+　　在当前线程中已运行的时间。
 
 ##Android通过Intent.ACTION_CLOSE_SYSTEM_DIALOGS监听Home按键事件
 
 参考：http://blog.csdn.net/qiantujava/article/details/50581026
 
-应用层不能直接监听HOME键，而只能使用广播监听。
+　　应用层不能直接监听HOME键，而只能使用广播监听。
 在每次点击Home按键时都会发出一个action为Intent.ACTION_CLOSE_SYSTEM_DIALOGS的广播，它是关闭系统Dialog的广播，我们可以通过注册它来监听Home按键消息。
 
+##监听网络变化
+
+　　可以注册BroadcastReceiver来监听，网络状态变化的时候，系统会自动发广播ConnectivityManager.CONNECTIVITY_ACTION即"android.net.conn.CONNECTIVITY_CHANGE"，我们可以静态注册，也可以动态初注册。
+
+```
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            Log.d(TAG, "onReceiver, intent: " + intent.toString());
+            if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)) {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                int networkType = intent.getExtras().getInt(ConnectivityManager.EXTRA_NETWORK_TYPE);
+                //引起网络变化的type
+                Log.d(TAG, "networkType: " + networkType);
+                //TYPE_MOBILE:0, TYPE_WIFI:1
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    Log.d(TAG, "has connected, + typeName: " + networkInfo.getTypeName());
+                } else {
+                    Log.d(TAG, "has lost network, networkType: " + networkType);
+                }
+
+
+            }
+        }
+    };
+```
+　　可以使用`int networkType = intent.getExtras().getInt(ConnectivityManager.EXTRA_NETWORK_TYPE);`来获取引起网络变化的类型，其中Mobil为0，Wifi为1。可以通过`ConnectivityManager.getActiveNetworkInfo();`来获取当前可以使用的网络，如果为null则表示没有连接的网络。否则，如果`NetworkInfo.isConnected()`返回为true，则表示网络已连接，可以通过`NetworkInfo.getTypeName()`获取其类型。
+
+别忘了添加权限：
+`<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>`

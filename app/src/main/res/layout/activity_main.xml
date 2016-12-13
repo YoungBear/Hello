@@ -54,5 +54,11 @@
         android:layout_height="wrap_content"
         android:text="@string/home_key_name"/>
 
+    <Button
+        android:id="@+id/btn_network_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/network_state_name"/>
+
     
 </LinearLayout>
