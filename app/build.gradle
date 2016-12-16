@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'ysx_signed'
+            keyPassword 'TianHua19920628'
+            storeFile file('../ysx_signed.jks')
+            storePassword 'TianHua19920628'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
     defaultConfig {
@@ -15,12 +23,24 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    productFlavors {
+        Dangbei {
+            manifestPlaceholders = [TEST_CHANNEL: "Dangbei"]
+        }
+        Xiaomi {
+            manifestPlaceholders = [TEST_CHANNEL: "Xiaomi"]
+        }
+        Pptv {
+            manifestPlaceholders = [TEST_CHANNEL: "Pptv"]
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.jakewharton:butterknife:7.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
