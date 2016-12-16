@@ -12,6 +12,7 @@ import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
 import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
+import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 
 public class MainActivity extends Activity {
@@ -33,6 +34,7 @@ public class MainActivity extends Activity {
         Button btnGetTime = (Button) findViewById(R.id.btn_get_time);
         Button btnHomeKey = (Button) findViewById(R.id.btn_home_key);
         Button btnNetWorkState = (Button) findViewById(R.id.btn_network_state);
+        Button btnSystemProperties = (Button) findViewById(R.id.btn_system_properties);
 
         btnTableLayout.setOnClickListener(btnClickListener);
         btnDragView.setOnClickListener(btnClickListener);
@@ -41,6 +43,7 @@ public class MainActivity extends Activity {
         btnGetTime.setOnClickListener(btnClickListener);
         btnHomeKey.setOnClickListener(btnClickListener);
         btnNetWorkState.setOnClickListener(btnClickListener);
+        btnSystemProperties.setOnClickListener(btnClickListener);
 
     }
 
@@ -73,6 +76,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_network_state:
                     startActivity(NetWorkStateActivity.class);
+                    break;
+                case R.id.btn_system_properties:
+                    startActivity(SystemPropertiesActivity.class);
                     break;
             }
         }

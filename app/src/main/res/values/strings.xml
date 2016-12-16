@@ -7,4 +7,5 @@
     <string name="get_time_name">Get Time Activity</string>
     <string name="home_key_name">Home Key Activity</string>
     <string name="network_state_name">NetWork State Activity</string>
+    <string name="system_properties_name">System Properties Activity</string>
 </resources>

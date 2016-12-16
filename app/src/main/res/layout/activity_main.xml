@@ -60,5 +60,11 @@
         android:layout_height="wrap_content"
         android:text="@string/network_state_name"/>
 
+    <Button
+        android:id="@+id/btn_system_properties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/system_properties_name"/>
+
     
 </LinearLayout>

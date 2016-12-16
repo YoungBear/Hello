@@ -61,6 +61,8 @@
             android:name=".activity.NetWorkStateActivity"
             android:label="@string/network_state_name">
         </activity>
+        <activity android:name=".activity.SystemPropertiesActivity">
+        </activity>
     </application>
 
 </manifest>

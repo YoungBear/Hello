@@ -181,3 +181,23 @@ public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
 
 别忘了添加权限：
 `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>`
+
+##使用反射获取Android Properties
+
+```
+    public static String getSystemProperty(String key) {
+        Class<?> classType = null;
+        Method getMethod = null;
+        String ret = null;
+        try {
+            if (classType == null) {
+                classType = Class.forName("android.os.SystemProperties");
+                getMethod = classType.getDeclaredMethod("get", String.class);
+            }
+            ret = (String) getMethod.invoke(classType, key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+```
