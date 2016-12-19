@@ -124,7 +124,7 @@ public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
 ```
 
 ##Get Time
-　　Android获取时间：(一下时间单位都是毫秒)
+　　Android获取时间：(以下时间单位都是毫秒)
 
 ###System.currentTimeMillis()：
 
