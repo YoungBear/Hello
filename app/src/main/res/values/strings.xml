@@ -8,4 +8,5 @@
     <string name="home_key_name">Home Key Activity</string>
     <string name="network_state_name">NetWork State Activity</string>
     <string name="system_properties_name">System Properties Activity</string>
+    <string name="app_activity_name">App Activity</string>
 </resources>

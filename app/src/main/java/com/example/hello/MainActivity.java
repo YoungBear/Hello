@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.hello.activity.AppActivity;
 import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.GetTimeActivity;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
         Button btnHomeKey = (Button) findViewById(R.id.btn_home_key);
         Button btnNetWorkState = (Button) findViewById(R.id.btn_network_state);
         Button btnSystemProperties = (Button) findViewById(R.id.btn_system_properties);
+        Button btnApp = (Button) findViewById(R.id.btn_app);
 
         btnTableLayout.setOnClickListener(btnClickListener);
         btnDragView.setOnClickListener(btnClickListener);
@@ -44,6 +46,7 @@ public class MainActivity extends Activity {
         btnHomeKey.setOnClickListener(btnClickListener);
         btnNetWorkState.setOnClickListener(btnClickListener);
         btnSystemProperties.setOnClickListener(btnClickListener);
+        btnApp.setOnClickListener(btnClickListener);
 
     }
 
@@ -79,6 +82,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_system_properties:
                     startActivity(SystemPropertiesActivity.class);
+                    break;
+                case R.id.btn_app:
+                    startActivity(AppActivity.class);
                     break;
             }
         }
