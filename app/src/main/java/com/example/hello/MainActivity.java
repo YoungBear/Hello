@@ -15,6 +15,7 @@ import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
+import com.example.mylibrary.LogUtils;
 
 public class MainActivity extends Activity {
 
@@ -25,6 +26,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        LogUtils.d(TAG, "MainActivity has Created...");
     }
 
     private void initView() {
