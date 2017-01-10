@@ -74,7 +74,13 @@
             android:name=".activity.AppActivity"
             android:label="@string/app_activity_name">
         </activity>
-        <activity android:name=".activity.OneAppActivity">
+        <activity
+            android:name=".activity.OneAppActivity"
+            android:label="@string/one_app_activity_name">
+        </activity>
+        <activity
+            android:name=".activity.StrictModeActivity"
+            android:label="@string/strict_mode_name">
         </activity>
     </application>
 
