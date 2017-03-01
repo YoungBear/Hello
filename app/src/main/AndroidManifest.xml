@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <permission android:name="com.example.hello.provider.read"
+        android:label="book provider permission"/>
+
     <application
         android:name=".model.MyApplication"
         android:allowBackup="true"
@@ -82,6 +85,14 @@
             android:name=".activity.StrictModeActivity"
             android:label="@string/strict_mode_name">
         </activity>
+
+        <provider
+            android:name=".provider.BookProvider"
+            android:authorities="com.example.hello.provider.book"
+            android:permission="com.example.hello.provider.read"
+            android:enabled="true"
+            android:exported="true">
+        </provider>
     </application>
 
 </manifest>
