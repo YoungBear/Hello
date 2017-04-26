@@ -19,43 +19,42 @@ import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.mylibrary.LogUtils;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends Activity {
 
     public static final String TAG = "bearyang";
+    @Bind(R.id.btn_table_layout)
+    Button mBtnTableLayout;
+    @Bind(R.id.btn_drag_view)
+    Button mBtnDragView;
+    @Bind(R.id.btn_butter_knife)
+    Button mBtnButterKnife;
+    @Bind(R.id.btn_receiver_learn)
+    Button mBtnReceiverLearn;
+    @Bind(R.id.btn_get_time)
+    Button mBtnGetTime;
+    @Bind(R.id.btn_home_key)
+    Button mBtnHomeKey;
+    @Bind(R.id.btn_network_state)
+    Button mBtnNetworkState;
+    @Bind(R.id.btn_system_properties)
+    Button mBtnSystemProperties;
+    @Bind(R.id.btn_app)
+    Button mBtnApp;
+    @Bind(R.id.btn_strict_mode)
+    Button mBtnStrictMode;
+    @Bind(R.id.btn_web_view)
+    Button mBtnWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+        ButterKnife.bind(this);
         LogUtils.d(TAG, "MainActivity has Created...");
-    }
-
-    private void initView() {
-        Button btnTableLayout = (Button) findViewById(R.id.btn_table_layout);
-        Button btnDragView = (Button) findViewById(R.id.btn_drag_view);
-        Button btnButterKnife = (Button) findViewById(R.id.btn_butter_knife);
-        Button btnReceiverLearn = (Button) findViewById(R.id.btn_receiver_learn);
-        Button btnGetTime = (Button) findViewById(R.id.btn_get_time);
-        Button btnHomeKey = (Button) findViewById(R.id.btn_home_key);
-        Button btnNetWorkState = (Button) findViewById(R.id.btn_network_state);
-        Button btnSystemProperties = (Button) findViewById(R.id.btn_system_properties);
-        Button btnApp = (Button) findViewById(R.id.btn_app);
-        Button btnStrictMode = (Button) findViewById(R.id.btn_strict_mode);
-        Button btnWebView = (Button) findViewById(R.id.btn_web_view);
-
-        btnTableLayout.setOnClickListener(btnClickListener);
-        btnDragView.setOnClickListener(btnClickListener);
-        btnButterKnife.setOnClickListener(btnClickListener);
-        btnReceiverLearn.setOnClickListener(btnClickListener);
-        btnGetTime.setOnClickListener(btnClickListener);
-        btnHomeKey.setOnClickListener(btnClickListener);
-        btnNetWorkState.setOnClickListener(btnClickListener);
-        btnSystemProperties.setOnClickListener(btnClickListener);
-        btnApp.setOnClickListener(btnClickListener);
-        btnStrictMode.setOnClickListener(btnClickListener);
-        btnWebView.setOnClickListener(btnClickListener);
-
     }
 
     private void startActivity(Class<?> clazz) {
@@ -63,45 +62,42 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    View.OnClickListener btnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btn_table_layout:
-                    startActivity(TableLayoutActivity.class);
-                    break;
-                case R.id.btn_drag_view:
-                    startActivity(DragViewActivity.class);
-                    break;
-                case R.id.btn_butter_knife:
-                    startActivity(ButterKnifeActivity.class);
-                    break;
-                case R.id.btn_receiver_learn:
-                    startActivity(ReceiverLearnActivity.class);
-                    break;
-                case R.id.btn_get_time:
-                    startActivity(GetTimeActivity.class);
-                    break;
-                case R.id.btn_home_key:
-                    startActivity(HomeKeyActivity.class);
-                    break;
-                case R.id.btn_network_state:
-                    startActivity(NetWorkStateActivity.class);
-                    break;
-                case R.id.btn_system_properties:
-                    startActivity(SystemPropertiesActivity.class);
-                    break;
-                case R.id.btn_app:
-                    startActivity(AppActivity.class);
-                    break;
-                case R.id.btn_strict_mode:
-                    startActivity(StrictModeActivity.class);
-                    break;
-                case R.id.btn_web_view:
-                    startActivity(WebViewActivity.class);
-                    break;
-            }
+    @OnClick({R.id.btn_table_layout, R.id.btn_drag_view, R.id.btn_butter_knife, R.id.btn_receiver_learn, R.id.btn_get_time, R.id.btn_home_key, R.id.btn_network_state, R.id.btn_system_properties, R.id.btn_app, R.id.btn_strict_mode, R.id.btn_web_view})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_table_layout:
+                startActivity(TableLayoutActivity.class);
+                break;
+            case R.id.btn_drag_view:
+                startActivity(DragViewActivity.class);
+                break;
+            case R.id.btn_butter_knife:
+                startActivity(ButterKnifeActivity.class);
+                break;
+            case R.id.btn_receiver_learn:
+                startActivity(ReceiverLearnActivity.class);
+                break;
+            case R.id.btn_get_time:
+                startActivity(GetTimeActivity.class);
+                break;
+            case R.id.btn_home_key:
+                startActivity(HomeKeyActivity.class);
+                break;
+            case R.id.btn_network_state:
+                startActivity(NetWorkStateActivity.class);
+                break;
+            case R.id.btn_system_properties:
+                startActivity(SystemPropertiesActivity.class);
+                break;
+            case R.id.btn_app:
+                startActivity(AppActivity.class);
+                break;
+            case R.id.btn_strict_mode:
+                startActivity(StrictModeActivity.class);
+                break;
+            case R.id.btn_web_view:
+                startActivity(WebViewActivity.class);
+                break;
         }
-    };
-
+    }
 }

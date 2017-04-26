@@ -20,11 +20,15 @@ import com.example.hello.util.AppUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class AppActivity extends Activity {
     private static final String TAG = AppActivity.class.getSimpleName();
-
-    private TextView tvShow;
-    private GridView appGridView;
+    @Bind(R.id.tv_show)
+    TextView mTvShow;
+    @Bind(R.id.grid_apps)
+    GridView mGridApps;
 
     private AppAdapter mAdapter;
     private List<AppInfo> mAppList;
@@ -33,10 +37,11 @@ public class AppActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
+        ButterKnife.bind(this);
 
         initViews();
         loadData(this);
-        appGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGridApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick, position: " + position);
@@ -61,8 +66,8 @@ public class AppActivity extends Activity {
     }
 
     private void initViews() {
-        tvShow = (TextView) findViewById(R.id.tv_show);
-        appGridView = (GridView) findViewById(R.id.grid_apps);
+        mTvShow = (TextView) findViewById(R.id.tv_show);
+        mGridApps = (GridView) findViewById(R.id.grid_apps);
 
     }
 
@@ -74,6 +79,7 @@ public class AppActivity extends Activity {
     private class AppTask extends AsyncTask<Void, Void, List<AppInfo>> {
 
         private Context mContext;
+
         public AppTask(Context context) {
             this.mContext = context;
         }
@@ -81,7 +87,7 @@ public class AppActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            tvShow.setText("Loading......");
+            mTvShow.setText("Loading......");
         }
 
         @Override
@@ -98,10 +104,10 @@ public class AppActivity extends Activity {
         @Override
         protected void onPostExecute(List<AppInfo> appInfos) {
             super.onPostExecute(appInfos);
-            tvShow.setText("Loading Completed......");
+            mTvShow.setText("Loading Completed......");
             mAppList = appInfos;
             mAdapter = new AppAdapter(mContext, mAppList);
-            appGridView.setAdapter(mAdapter);
+            mGridApps.setAdapter(mAdapter);
         }
 
     }
