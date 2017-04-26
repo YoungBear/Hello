@@ -16,6 +16,7 @@ import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
+import com.example.hello.activity.WebViewActivity;
 import com.example.mylibrary.LogUtils;
 
 public class MainActivity extends Activity {
@@ -41,6 +42,7 @@ public class MainActivity extends Activity {
         Button btnSystemProperties = (Button) findViewById(R.id.btn_system_properties);
         Button btnApp = (Button) findViewById(R.id.btn_app);
         Button btnStrictMode = (Button) findViewById(R.id.btn_strict_mode);
+        Button btnWebView = (Button) findViewById(R.id.btn_web_view);
 
         btnTableLayout.setOnClickListener(btnClickListener);
         btnDragView.setOnClickListener(btnClickListener);
@@ -52,6 +54,7 @@ public class MainActivity extends Activity {
         btnSystemProperties.setOnClickListener(btnClickListener);
         btnApp.setOnClickListener(btnClickListener);
         btnStrictMode.setOnClickListener(btnClickListener);
+        btnWebView.setOnClickListener(btnClickListener);
 
     }
 
@@ -93,6 +96,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_strict_mode:
                     startActivity(StrictModeActivity.class);
+                    break;
+                case R.id.btn_web_view:
+                    startActivity(WebViewActivity.class);
                     break;
             }
         }

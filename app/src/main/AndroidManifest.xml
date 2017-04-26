@@ -3,8 +3,10 @@
           package="com.example.hello">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <permission android:name="com.example.hello.provider.read"
+    <permission
+        android:name="com.example.hello.provider.read"
         android:label="book provider permission"/>
 
     <application
@@ -85,14 +87,20 @@
             android:name=".activity.StrictModeActivity"
             android:label="@string/strict_mode_name">
         </activity>
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:label="@string/web_view_name">
+        </activity>
 
         <provider
             android:name=".provider.BookProvider"
             android:authorities="com.example.hello.provider.book"
-            android:permission="com.example.hello.provider.read"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="com.example.hello.provider.read">
         </provider>
+
+
     </application>
 
 </manifest>
