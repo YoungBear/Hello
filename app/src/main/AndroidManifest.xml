@@ -3,7 +3,7 @@
           package="com.example.hello">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <permission
         android:name="com.example.hello.provider.read"
@@ -91,6 +91,10 @@
             android:name=".activity.WebViewActivity"
             android:label="@string/web_view_name">
         </activity>
+        <activity
+            android:name=".activity.IntentActivity"
+            android:label="@string/intent_activity_name">
+        </activity>
 
         <provider
             android:name=".provider.BookProvider"
@@ -99,7 +103,6 @@
             android:exported="true"
             android:permission="com.example.hello.provider.read">
         </provider>
-
 
     </application>
 

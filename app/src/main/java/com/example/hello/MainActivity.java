@@ -11,6 +11,7 @@ import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
+import com.example.hello.activity.IntentActivity;
 import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.StrictModeActivity;
@@ -48,6 +49,8 @@ public class MainActivity extends Activity {
     Button mBtnStrictMode;
     @Bind(R.id.btn_web_view)
     Button mBtnWebView;
+    @Bind(R.id.btn_intent)
+    Button mBtnIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    @OnClick({R.id.btn_table_layout, R.id.btn_drag_view, R.id.btn_butter_knife, R.id.btn_receiver_learn, R.id.btn_get_time, R.id.btn_home_key, R.id.btn_network_state, R.id.btn_system_properties, R.id.btn_app, R.id.btn_strict_mode, R.id.btn_web_view})
+    @OnClick({R.id.btn_table_layout, R.id.btn_drag_view, R.id.btn_butter_knife, R.id.btn_receiver_learn, R.id.btn_get_time, R.id.btn_home_key, R.id.btn_network_state, R.id.btn_system_properties, R.id.btn_app, R.id.btn_strict_mode, R.id.btn_web_view, R.id.btn_intent})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_table_layout:
@@ -97,6 +100,9 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btn_web_view:
                 startActivity(WebViewActivity.class);
+                break;
+            case R.id.btn_intent:
+                startActivity(IntentActivity.class);
                 break;
         }
     }
