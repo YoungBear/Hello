@@ -11,24 +11,24 @@ import com.example.hello.R;
 import com.example.hello.model.app.AppInfo;
 import com.example.hello.util.AppUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class OneAppActivity extends Activity {
 
     public static final String KEY_APP_INFO = "app_info";
-    @Bind(R.id.img_icon)
+    @BindView(R.id.img_icon)
     ImageView mImgIcon;
-    @Bind(R.id.tv_package_name)
+    @BindView(R.id.tv_package_name)
     TextView mTvPackageName;
-    @Bind(R.id.tv_version_name)
+    @BindView(R.id.tv_version_name)
     TextView mTvVersionName;
-    @Bind(R.id.tv_version_code)
+    @BindView(R.id.tv_version_code)
     TextView mTvVersionCode;
-    @Bind(R.id.tv_app_name)
+    @BindView(R.id.tv_app_name)
     TextView mTvAppName;
-    @Bind(R.id.btn_open_activity)
+    @BindView(R.id.btn_open_activity)
     Button mBtnOpenActivity;
 
     private AppInfo mAppInfo;

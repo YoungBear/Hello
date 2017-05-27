@@ -14,16 +14,16 @@ import com.example.hello.receiver.TestReceiver;
 import java.text.DateFormat;
 import java.util.Date;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ReceiverLearnActivity extends Activity {
     public static final String TAG = ReceiverLearnActivity.class.getSimpleName();
 
-    @Bind(R.id.btn_send)
+    @BindView(R.id.btn_send)
     Button mBtnSend;
-    @Bind(R.id.txt_show)
+    @BindView(R.id.txt_show)
     TextView mTxtShow;
 
     private TestReceiver mTestReceiver;

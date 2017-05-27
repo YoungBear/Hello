@@ -13,13 +13,13 @@ import android.widget.TextView;
 
 import com.example.hello.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NetWorkStateActivity extends Activity {
     public static final String TAG = NetWorkStateActivity.class.getSimpleName();
 
-    @Bind(R.id.tv_show)
+    @BindView(R.id.tv_show)
     TextView tvShow;
 
     @Override

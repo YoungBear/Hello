@@ -8,13 +8,13 @@ import android.widget.Button;
 
 import com.example.hello.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class IntentActivity extends Activity {
 
-    @Bind(R.id.btn_url_intent)
+    @BindView(R.id.btn_url_intent)
     Button mBtnUrlIntent;
 
     @Override

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.hello.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -19,7 +19,7 @@ import static android.os.Build.VERSION_CODES.GINGERBREAD;
 public class StrictModeActivity extends Activity {
 
     public static final boolean IS_DEBUG = true;
-    @Bind(R.id.async_task)
+    @BindView(R.id.async_task)
     Button mAsyncTask;
 
     /**

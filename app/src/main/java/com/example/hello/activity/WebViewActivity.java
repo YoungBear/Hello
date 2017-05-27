@@ -7,14 +7,14 @@ import android.webkit.WebViewClient;
 
 import com.example.hello.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WebViewActivity extends Activity {
 
     private static final String URL = "http://www.baidu.com";
 
-    @Bind(R.id.web_view)
+    @BindView(R.id.web_view)
     WebView mWebView;
 
     @Override

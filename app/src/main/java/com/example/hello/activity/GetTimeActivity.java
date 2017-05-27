@@ -11,7 +11,7 @@ import com.example.hello.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class GetTimeActivity extends Activity {
@@ -20,9 +20,9 @@ public class GetTimeActivity extends Activity {
 
     public static final String FORMAT_STRING = "yyyy-MM-dd HH:mm:ss E";
 
-    @Bind(R.id.tv_show)
+    @BindView(R.id.tv_show)
     TextView mTvShow;
-    @Bind(R.id.tv_date)
+    @BindView(R.id.tv_date)
     TextView mTvDate;
 
     private Handler mHandler = new Handler();

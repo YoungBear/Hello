@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.hello.R;
 import com.example.hello.util.SystemInfoUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SystemPropertiesActivity extends Activity {
@@ -25,13 +25,13 @@ public class SystemPropertiesActivity extends Activity {
     public static final String PROP_KEY_RO_PRODUCT_BRAND = "ro.product.brand";
     public static final String PROP_KEY_RO_PRODUCT_NAME = "ro.product.name";
 
-    @Bind(R.id.tv_show)
+    @BindView(R.id.tv_show)
     TextView mTvShow;
-    @Bind(R.id.edit_key)
+    @BindView(R.id.edit_key)
     EditText mEditKey;
-    @Bind(R.id.btn_get)
+    @BindView(R.id.btn_get)
     Button mBtnGet;
-    @Bind(R.id.tv_prop)
+    @BindView(R.id.tv_prop)
     TextView mTvProp;
 
     @Override

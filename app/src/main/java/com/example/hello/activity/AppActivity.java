@@ -20,14 +20,14 @@ import com.example.hello.util.AppUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AppActivity extends Activity {
     private static final String TAG = AppActivity.class.getSimpleName();
-    @Bind(R.id.tv_show)
+    @BindView(R.id.tv_show)
     TextView mTvShow;
-    @Bind(R.id.grid_apps)
+    @BindView(R.id.grid_apps)
     GridView mGridApps;
 
     private AppAdapter mAdapter;

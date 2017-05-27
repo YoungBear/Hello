@@ -20,36 +20,36 @@ import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.mylibrary.LogUtils;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends Activity {
 
     public static final String TAG = "bearyang";
-    @Bind(R.id.btn_table_layout)
+    @BindView(R.id.btn_table_layout)
     Button mBtnTableLayout;
-    @Bind(R.id.btn_drag_view)
+    @BindView(R.id.btn_drag_view)
     Button mBtnDragView;
-    @Bind(R.id.btn_butter_knife)
+    @BindView(R.id.btn_butter_knife)
     Button mBtnButterKnife;
-    @Bind(R.id.btn_receiver_learn)
+    @BindView(R.id.btn_receiver_learn)
     Button mBtnReceiverLearn;
-    @Bind(R.id.btn_get_time)
+    @BindView(R.id.btn_get_time)
     Button mBtnGetTime;
-    @Bind(R.id.btn_home_key)
+    @BindView(R.id.btn_home_key)
     Button mBtnHomeKey;
-    @Bind(R.id.btn_network_state)
+    @BindView(R.id.btn_network_state)
     Button mBtnNetworkState;
-    @Bind(R.id.btn_system_properties)
+    @BindView(R.id.btn_system_properties)
     Button mBtnSystemProperties;
-    @Bind(R.id.btn_app)
+    @BindView(R.id.btn_app)
     Button mBtnApp;
-    @Bind(R.id.btn_strict_mode)
+    @BindView(R.id.btn_strict_mode)
     Button mBtnStrictMode;
-    @Bind(R.id.btn_web_view)
+    @BindView(R.id.btn_web_view)
     Button mBtnWebView;
-    @Bind(R.id.btn_intent)
+    @BindView(R.id.btn_intent)
     Button mBtnIntent;
 
     @Override

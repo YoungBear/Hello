@@ -9,16 +9,16 @@ import android.widget.TextView;
 
 import com.example.hello.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ButterKnifeActivity extends Activity {
 
-    @Bind(R.id.txt_show)
+    @BindView(R.id.txt_show)
     TextView mTxtShow;
-    @Bind(R.id.edit_account)
+    @BindView(R.id.edit_account)
     EditText mEditAccount;
-    @Bind(R.id.btn_login)
+    @BindView(R.id.btn_login)
     Button mBtnLogin;
 
     @Override
