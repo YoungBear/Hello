@@ -7,11 +7,22 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.adapter.WifiRecyclerAdapter;
+import com.example.mylibrary.LogUtils;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +32,13 @@ public class NetWorkStateActivity extends Activity {
 
     @BindView(R.id.tv_show)
     TextView tvShow;
+    @BindView(R.id.wifi_recycler_view)
+    RecyclerView mWifiRecyclerView;
+
+    private WifiRecyclerAdapter mAdapter;
+
+    private List<ScanResult> mScanResults = new ArrayList<>();
+    private Set<String> mSsidSet = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +46,7 @@ public class NetWorkStateActivity extends Activity {
         setContentView(R.layout.activity_net_work_state);
         ButterKnife.bind(this);
         registerReceiver();
+        getWifiList();
     }
 
     private void registerReceiver() {
@@ -67,4 +86,30 @@ public class NetWorkStateActivity extends Activity {
             }
         }
     };
+
+    private void getWifiList() {
+        WifiManager wifi = (WifiManager) getApplicationContext()
+                .getSystemService(Context.WIFI_SERVICE);
+        List<ScanResult> networkList = wifi.getScanResults();
+        for (ScanResult item : networkList) {
+            if (mSsidSet.add(item.SSID)) {
+                mScanResults.add(item);
+            }
+        }
+//        mScanResults = networkList;
+        mAdapter = new WifiRecyclerAdapter(mScanResults);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mWifiRecyclerView.setLayoutManager(linearLayoutManager);
+        mWifiRecyclerView.setHasFixedSize(true);
+        mWifiRecyclerView.setAdapter(mAdapter);
+        for (ScanResult item : networkList) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("SSID: " + item.SSID)
+                    .append("\ncapabilities: " + item.capabilities)
+                    .append("\nBSSID: " + item.BSSID);
+            LogUtils.d(TAG, stringBuilder.toString());
+        }
+
+    }
 }
