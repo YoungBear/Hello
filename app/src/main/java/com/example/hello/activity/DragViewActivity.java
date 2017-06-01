@@ -1,11 +1,11 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
-public class DragViewActivity extends Activity {
+public class DragViewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

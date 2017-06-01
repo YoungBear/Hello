@@ -98,6 +98,12 @@
             android:layout_height="wrap_content"
             android:text="@string/intent_activity_name" />
 
+        <Button
+            android:id="@+id/btn_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_layout_name"/>
+
 
     </LinearLayout>
 </ScrollView>

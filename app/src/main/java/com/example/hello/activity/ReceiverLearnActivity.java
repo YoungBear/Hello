@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -9,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 import com.example.hello.receiver.TestReceiver;
 
 import java.text.DateFormat;
@@ -18,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReceiverLearnActivity extends Activity {
+public class ReceiverLearnActivity extends BaseActivity {
     public static final String TAG = ReceiverLearnActivity.class.getSimpleName();
 
     @BindView(R.id.btn_send)

@@ -1,12 +1,12 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +14,7 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GetTimeActivity extends Activity {
+public class GetTimeActivity extends BaseActivity {
 
     private static final int TIME_DELAY = 1000;//1s
 

@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 import com.example.hello.model.app.AppInfo;
 import com.example.hello.util.AppUtils;
 
@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OneAppActivity extends Activity {
+public class OneAppActivity extends BaseActivity {
 
     public static final String KEY_APP_INFO = "app_info";
     @BindView(R.id.img_icon)

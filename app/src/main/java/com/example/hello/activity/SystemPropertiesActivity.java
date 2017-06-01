@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,12 +8,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 import com.example.hello.util.SystemInfoUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SystemPropertiesActivity extends Activity {
+public class SystemPropertiesActivity extends BaseActivity {
 
     public static final String PROP_KEY_RO_BUILD_ID = "ro.build.id";
     public static final String PROP_KEY_RO_BUILD_PRODUCT = "ro.build.product";

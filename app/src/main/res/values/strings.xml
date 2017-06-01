@@ -13,6 +13,7 @@
     <string name="strict_mode_name">StrictMode Activity</string>
     <string name="web_view_name">WebView Activity</string>
     <string name="intent_activity_name">Intent Activity</string>
+    <string name="tab_layout_name">TabLayout Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode

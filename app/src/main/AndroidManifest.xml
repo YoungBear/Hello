@@ -105,6 +105,10 @@
             android:permission="com.example.hello.provider.read">
         </provider>
 
+        <activity
+            android:name=".activity.TabActivity"
+            android:label="@string/tab_layout_name">
+        </activity>
     </application>
 
 </manifest>

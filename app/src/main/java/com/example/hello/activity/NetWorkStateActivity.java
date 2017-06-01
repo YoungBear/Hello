@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.hello.R;
 import com.example.hello.adapter.WifiRecyclerAdapter;
+import com.example.hello.base.BaseActivity;
 import com.example.mylibrary.LogUtils;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.Set;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NetWorkStateActivity extends Activity {
+public class NetWorkStateActivity extends BaseActivity {
     public static final String TAG = NetWorkStateActivity.class.getSimpleName();
 
     @BindView(R.id.tv_show)

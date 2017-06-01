@@ -1,14 +1,14 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 import com.example.hello.receiver.HomeKeyListener;
 
-public class HomeKeyActivity extends Activity {
+public class HomeKeyActivity extends BaseActivity {
     private Context context;
     private HomeKeyListener listener;
 

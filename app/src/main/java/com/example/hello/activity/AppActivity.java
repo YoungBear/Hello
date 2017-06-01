@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.hello.AppAdapter;
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 import com.example.hello.model.app.AppInfo;
 import com.example.hello.util.AppUtils;
 
@@ -23,7 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AppActivity extends Activity {
+public class AppActivity extends BaseActivity {
     private static final String TAG = AppActivity.class.getSimpleName();
     @BindView(R.id.tv_show)
     TextView mTvShow;

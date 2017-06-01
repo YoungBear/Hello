@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,11 +7,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ButterKnifeActivity extends Activity {
+public class ButterKnifeActivity extends BaseActivity {
 
     @BindView(R.id.txt_show)
     TextView mTxtShow;

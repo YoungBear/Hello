@@ -1,18 +1,18 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class IntentActivity extends Activity {
+public class IntentActivity extends BaseActivity {
 
     @BindView(R.id.btn_url_intent)
     Button mBtnUrlIntent;

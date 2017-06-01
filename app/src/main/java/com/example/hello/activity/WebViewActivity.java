@@ -1,16 +1,16 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends BaseActivity {
 
     private static final String URL = "http://www.baidu.com";
 

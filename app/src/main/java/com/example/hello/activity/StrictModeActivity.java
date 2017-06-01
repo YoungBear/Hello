@@ -1,6 +1,5 @@
 package com.example.hello.activity;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -8,6 +7,7 @@ import android.os.SystemClock;
 import android.widget.Button;
 
 import com.example.hello.R;
+import com.example.hello.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +16,7 @@ import butterknife.OnClick;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.GINGERBREAD;
 
-public class StrictModeActivity extends Activity {
+public class StrictModeActivity extends BaseActivity {
 
     public static final boolean IS_DEBUG = true;
     @BindView(R.id.async_task)
