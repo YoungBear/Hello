@@ -16,9 +16,9 @@ import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
-import com.example.hello.activity.TabActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
+import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.mylibrary.LogUtils;
 
 import butterknife.BindView;
@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
                 startActivity(IntentActivity.class);
                 break;
             case R.id.btn_tab:
-                startActivity(TabActivity.class);
+                startActivity(TabLayoutMainActivity.class);
                 break;
             default:
                 break;

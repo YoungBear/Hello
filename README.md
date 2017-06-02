@@ -1,6 +1,250 @@
 # 这是一个日常练习的程序
 
-## TableLayout
+# TabLayout
+介绍：
+
+源码路径：
+`android.support.design.widget.TabLayout.java`
+
+`TabLayout provides a horizontal layout to display tabs.`
+简单翻译下：TabLayout提供一个水平的布局来显示tabs。
+
+
+## 一. 引入依赖库：
+`compile 'com.android.support:design:26.0.0-alpha1'`
+
+## 二. 使用TabLayout
+
+### 第一种方法：
+使用`TabLayout.newTab()`来创建Tab
+```
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.TabLayout>
+```
+
+```
+        mTabLayout1.addTab(mTabLayout1.newTab().setText("item1"));
+        mTabLayout1.addTab(mTabLayout1.newTab().setText("item2"));
+        mTabLayout1.addTab(mTabLayout1.newTab().setText("item3"));
+        mTabLayout1.addTab(mTabLayout1.newTab().setText("item4"));
+```
+
+### 第二种方法：
+使用`TabItem`
+
+```
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item1"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item2"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item3"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item4"/>
+
+    </android.support.design.widget.TabLayout>
+```
+
+### 第三种方法：
+绑定ViewPager，调用方法：`setupWithViewPager(ViewPager)`，重写`PagerAdapter`的`getPageTitle`方法后，就可以添加导航的item。
+
+```
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/red"
+        app:tabSelectedTextColor="@color/red"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorHeight="@dimen/tab_indicator_height"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+```
+
+Activity代码：
+
+```
+    @BindView(R.id.tab_layout)
+    TabLayout mTabLayout;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
+
+    private List<String> mTitleList = Arrays.asList("1","2","3","4","5","6","7","8");
+    private List<Fragment> mFragmentList = new ArrayList<>();
+    private TabFragmentPagerAdapter mTabFragmentPagerAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tab);
+        ButterKnife.bind(this);
+        initFragmentViewPager();
+    }
+
+    private void initFragmentViewPager(){
+        mFragmentList.add(new Fragment1());
+        mFragmentList.add(new Fragment2());
+        mFragmentList.add(new Fragment3());
+        mFragmentList.add(new Fragment4());
+        mFragmentList.add(new Fragment1());
+        mFragmentList.add(new Fragment2());
+        mFragmentList.add(new Fragment3());
+        mFragmentList.add(new Fragment4());
+        mTabFragmentPagerAdapter = new TabFragmentPagerAdapter(
+                getSupportFragmentManager(),
+                mTitleList,
+                mFragmentList);
+
+        mViewPager.setAdapter(mTabFragmentPagerAdapter);
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mTabLayout.setupWithViewPager(mViewPager);
+
+    }
+```
+Adapter:
+
+```
+    private List<String> mTitles;
+    private List<Fragment> mFragments;
+
+    public TabFragmentPagerAdapter(FragmentManager fm, List<String> titles, List<Fragment> fragments) {
+        super(fm);
+        mTitles = titles;
+        mFragments = fragments;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        return mFragments.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return mFragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mTitles.get(position);
+    }
+```
+
+## 三 设置TabLayout的自定义属性
+**设置指示器indicator的颜色：**
+
+`app:tabIndicatorColor="@color/red"`
+
+**设置指示器indicator的高度：**
+
+`app:tabIndicatorHeight="@dimen/tab_indicator_height"`
+
+**设置tab的字体颜色：**
+
+`app:tabTextColor="@color/black"`
+
+**设置tab选中的字体颜色：**
+
+`app:tabSelectedTextColor="@color/red"`
+
+**设置tab的字体大小：**
+
+`app:tabTextAppearance="@style/MyTabLayoutTextAppearance"`
+
+其中，MyTabLayoutTextAppearance为自定义的style：
+
+```
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/tab_text_size</item>
+    </style>
+```
+
+**添加icon：**
+
+`android:icon="@mipmap/ic_launcher"`
+
+或者
+
+`mTabLayout1.addTab(mTabLayout1.newTab().setText("item1").setIcon(R.mipmap.ic_launcher));`
+
+**设置TabLayout为可以滑动：**
+
+`app:tabMode="scrollable"`
+
+或者
+
+`mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);`
+
+默认是fixed：固定的，标签很多时候会被挤压，不能滑动。
+
+**tab内部的padding：**
+
+```
+        app:tabPadding="2dp"
+        app:tabPaddingTop="2dp"
+        app:tabPaddingBottom="2dp"
+        app:tabPaddingStart="2dp"
+        app:tabPaddingEnd="2dp"
+```
+
+**内容的显示模式：**
+
+`app:tabGravity="center"`
+
+center表示居中，如果是fill，则是充满。
+
+**tab的宽度：**
+
+```
+app:tabMinWidth="120dp"
+app:tabMaxWidth="120dp"
+```
+
+**TabLayout开始位置的偏移量：**
+
+`app:tabContentStart="20dp"`
+
+demo地址：
+https://github.com/YoungBear/Hello
+
+参考:
+
+http://www.jianshu.com/p/2b2bb6be83a8
+
+http://www.jianshu.com/p/ce1d060573ba#
+
+
+
+# TableLayout
 Tablelayout类以行和列的形式对控件进行管理，每一行为一个TableRow对象，或一个View控件。
 
 当为TableRow对象时，可在TableRow下添加子控件，默认情况下，每个子控件占据一列。
@@ -30,9 +274,9 @@ shrink 收缩
 
 stretch 拉伸
 
-## DragView
+# DragView
 
-### View的位置参数
+## View的位置参数
 参考：
 http://blog.csdn.net/jason0539/article/details/42743531
 
@@ -99,7 +343,7 @@ http://blog.csdn.net/jason0539/article/details/42743531
 
 　　通过上述代码可以看出，这一全屏滑动的效果实现起来相当简单。首先，通过getRawX和getRawY方法来获取手指当前的坐标，注意不能使用getX和getY方法，因为这个是要全屏滑动的，所以需要获取当前点击事件在屏幕中的坐标而不是相当于View本身的坐标；其次，我们要得到两次滑动之间的位移，有了这个位移就可以移动当前的View，移动方法采用View的setTranslationX和setTranslationY，只能在Android3.0及其以上版本上使用。
 
-## AndroidStudio插件ButterKnife
+# AndroidStudio插件ButterKnife
 　　Android Butterknife Zelezny这个插件，可以以图形化的操作添加Butterkinfe注解。而Butterkinfe注解可以代替完成view的findViewById的操作，这样会加快开发速度。
 
 使用步骤：
@@ -110,9 +354,9 @@ http://blog.csdn.net/jason0539/article/details/42743531
 
 ![](https://github.com/avast/android-butterknife-zelezny/blob/master/img/zelezny_animated.gif)
 
-## BroadcastReceiver
+# BroadcastReceiver
 
-### 只能通过动态注册的广播接收器：
+## 只能通过动态注册的广播接收器：
 
 You cannot receive this through components declared in manifests, only by explicitly registering for it with{@link Context#registerReceiver(BroadcastReceiver, IntentFilter) Context.registerReceiver()}
 
@@ -123,33 +367,33 @@ public static final String ACTION_SCREEN_ON = "android.intent.action.SCREEN_ON";
 public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";//每分钟触发一次
 ```
 
-## Get Time
+# Get Time
 　　Android获取时间：(以下时间单位都是毫秒)
 
-### System.currentTimeMillis()：
+## System.currentTimeMillis()：
 
 　　该时间是基于世界时间的，它返回的是从January 1, 1970 00:00:00 UTC到现在时间已经逝去了多少毫秒，当我设置Android手机的系统时间时，会应该影响该值。
 
-### SystemClock.uptimeMillis()：
+## SystemClock.uptimeMillis()：
 
 　　它表示的是手机从启动到现在的运行时间，且不包括系统sleep(CPU关闭)的时间，很多系统的内部时间都是基于此。
 
-### SystemClock.elapsedRealtime()：
+## SystemClock.elapsedRealtime()：
 
 　　它表示的是手机从启动到现在的运行时间，且包括系统sleep(CPU关闭)的时间。
 
-### SystemClock.currentThreadTimeMillis()：
+## SystemClock.currentThreadTimeMillis()：
 
 　　在当前线程中已运行的时间。
 
-## Android通过Intent.ACTION_CLOSE_SYSTEM_DIALOGS监听Home按键事件
+# Android通过Intent.ACTION_CLOSE_SYSTEM_DIALOGS监听Home按键事件
 
 参考：http://blog.csdn.net/qiantujava/article/details/50581026
 
 　　应用层不能直接监听HOME键，而只能使用广播监听。
 在每次点击Home按键时都会发出一个action为Intent.ACTION_CLOSE_SYSTEM_DIALOGS的广播，它是关闭系统Dialog的广播，我们可以通过注册它来监听Home按键消息。
 
-## 监听网络变化
+# 监听网络变化
 
 　　可以注册BroadcastReceiver来监听，网络状态变化的时候，系统会自动发广播ConnectivityManager.CONNECTIVITY_ACTION即"android.net.conn.CONNECTIVITY_CHANGE"，我们可以静态注册，也可以动态初注册。
 
@@ -182,7 +426,7 @@ public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
 别忘了添加权限：
 `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>`
 
-## 使用反射获取Android Properties
+# 使用反射获取Android Properties
 
 ```
     public static String getSystemProperty(String key) {
@@ -202,7 +446,7 @@ public static final String ACTION_TIME_TICK = "android.intent.action.TIME_TICK";
     }
 ```
 
-## Android Stuio 多渠道打包并签名
+# Android Stuio 多渠道打包并签名
 
 参考：
 
@@ -212,7 +456,7 @@ http://unclechen.github.io/2015/10/22/Android-Studio-Gradle%E5%AE%9E%E8%B7%B5%E4
 
 http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/
 
-## 获取应用信息
+# 获取应用信息
 
 获取所有应用：
 
@@ -274,7 +518,7 @@ http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/
 
 ```
 
-## StrictMode
+# StrictMode
 
 Android 2.3(API Level 9) 提供了一个称为严苛模式(StrictMode)的调试特性，Google称该特性已经使数百个Android上的Google应用程序受益。那它都做了什么呢？它将报告与线程与虚拟机相关的策略违例。一旦检测到策略违例(policy violation)，你将获得警告，其包含了一个栈trace显示你的应用在何处发生违例。你可以强制用警告代替崩溃(crash)，也可以仅将警告计入日志，让你的应用继续执行。
 
@@ -303,11 +547,11 @@ http://blog.csdn.net/brokge/article/details/8543145
 
 StrictMode通过策略方式来让你自定义需要检查哪方面的问题。主要有两种策略：
 
-### 两种策略
+## 两种策略
 1. 线程策略(ThreadPolicy)
 2. 虚拟机策略(VMPolicy)
 
-#### ThreadPolicy
+### ThreadPolicy
 线程策略检测的内容有：
 
 - 自定义的耗时调用，使用detectCustomSlowCalls()开启
@@ -315,7 +559,7 @@ StrictMode通过策略方式来让你自定义需要检查哪方面的问题。�
 - 磁盘写入操作，使用detectDiskWrites()开启
 - 网络操作，使用detectNetwork()开启
 
-#### VMPolicy
+### VMPolicy
 虚拟机策略检测的内容有：
 
 - Activity泄漏，使用detectActivityLeaks()开启
@@ -323,7 +567,7 @@ StrictMode通过策略方式来让你自定义需要检查哪方面的问题。�
 - 泄露的Sqlite对象，使用detectLeakedSqlLiteObjects()开启
 - 检测实例数量，使用setClassInstanceLimit()开启
 
-### 如何使用StrictMode
+## 如何使用StrictMode
 
 严格模式的开启可以放在Application或者Activity以及其他组件的onCreate方法。为了更好地分析应用中的问题，建议放在Application的onCreate方法中。
 
@@ -349,14 +593,14 @@ StrictMode通过策略方式来让你自定义需要检查哪方面的问题。�
 
 如有需要，也可以开启部分的严格模式。
 
-### 查看结果
+## 查看结果
 
 严格模式有很多种报告违例的形式，但是想要分析具体违例情况，还是需要查看日志，终端下过滤StrictMode就能得到违例的具体stacktrace信息。
 
 `adb logcat | grep StrictMode`
 
 
-### 检测内存泄漏
+## 检测内存泄漏
 
 通常情况下，检测内存泄露，我们需要使用MAT对heap dump 文件进行分析，这种操作不困难，但也不容易。使用严格模式，只需要过滤日志就能发现内存泄露。
 

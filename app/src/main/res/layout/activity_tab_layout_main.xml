@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.hello.activity.tab_layout.TabLayoutMainActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.TabLayout>
+
+    <include layout="@layout/horizontal_white_line"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item1"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@mipmap/ic_launcher"
+            android:text="tab_item2"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item3"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/tab_item4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tab_item4"/>
+
+    </android.support.design.widget.TabLayout>
+
+    <include layout="@layout/horizontal_white_line"/>
+
+    <Button
+        android:id="@+id/btn_tab_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tab_layout_fragment_name"/>
+
+</LinearLayout>

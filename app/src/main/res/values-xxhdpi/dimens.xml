@@ -3,4 +3,7 @@
     <dimen name="tab_indicator_height">3dp</dimen>
     <dimen name="tab_text_size">15sp</dimen>
     <!-- tab layout end -->
+
+    <!-- divider line -->
+    <dimen name="divider_line_size">2dp</dimen>
 </resources>

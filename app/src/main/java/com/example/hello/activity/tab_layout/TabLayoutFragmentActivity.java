@@ -1,4 +1,4 @@
-package com.example.hello.activity;
+package com.example.hello.activity.tab_layout;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TabActivity extends BaseActivity {
+public class TabLayoutFragmentActivity extends BaseActivity {
 
     @BindView(R.id.tab_layout)
     TabLayout mTabLayout;

@@ -106,8 +106,12 @@
         </provider>
 
         <activity
-            android:name=".activity.TabActivity"
-            android:label="@string/tab_layout_name">
+            android:name=".activity.tab_layout.TabLayoutFragmentActivity"
+            android:label="@string/tab_layout_fragment_name">
+        </activity>
+        <activity
+            android:name=".activity.tab_layout.TabLayoutMainActivity"
+            android:label="@string/tab_layout_main_name">
         </activity>
     </application>
 
