@@ -113,6 +113,10 @@
             android:name=".activity.tab_layout.TabLayoutMainActivity"
             android:label="@string/tab_layout_main_name">
         </activity>
+        <activity
+            android:name=".activity.GetDimensionActivity"
+            android:label="@string/get_dimension_name">
+        </activity>
     </application>
 
 </manifest>

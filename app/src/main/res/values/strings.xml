@@ -16,6 +16,7 @@
     <string name="tab_layout_name">TabLayout Activity</string>
     <string name="tab_layout_main_name">TabLayoutMain Activity</string>
     <string name="tab_layout_fragment_name">TabLayoutFragment Activity</string>
+    <string name="get_dimension_name">GetDimension Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
