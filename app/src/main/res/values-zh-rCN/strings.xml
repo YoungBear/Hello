@@ -17,7 +17,7 @@
     <string name="tab_layout_main_name">TabLayoutMain Activity</string>
     <string name="tab_layout_fragment_name">TabLayoutFragment Activity</string>
     <string name="get_dimension_name">GetDimension Activity</string>
-    <string name="runtime_permission_name">RuntimePermission Activity</string>
+    <string name="runtime_permission_name">运行时权限 Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -27,8 +27,8 @@
     <string name="intent_url">Intent URL</string>
 
     <!-- take photo -->
-    <string name="string_take_photo">Take Photo</string>
-    <string name="string_call_phone">Call Phone</string>
-    <string name="string_scan_code">Scan Code</string>
+    <string name="string_take_photo">调用照相机</string>
+    <string name="string_call_phone">打电话</string>
+    <string name="string_scan_code">扫码</string>
 
 </resources>

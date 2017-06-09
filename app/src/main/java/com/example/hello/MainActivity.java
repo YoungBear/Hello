@@ -19,6 +19,7 @@ import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
+import com.example.hello.activity.tab_layout.RuntimePermissionActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.mylibrary.LogUtils;
 
@@ -57,6 +58,8 @@ public class MainActivity extends Activity {
     Button mBtnTab;
     @BindView(R.id.btn_get_dimension)
     Button mBtnGetDimension;
+    @BindView(R.id.btn_runtime_permission)
+    Button mBtnRuntimePermission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,8 @@ public class MainActivity extends Activity {
             R.id.btn_web_view,
             R.id.btn_intent,
             R.id.btn_tab,
-            R.id.btn_get_dimension
+            R.id.btn_get_dimension,
+            R.id.btn_runtime_permission
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -130,6 +134,9 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btn_get_dimension:
                 startActivity(GetDimensionActivity.class);
+                break;
+            case R.id.btn_runtime_permission:
+                startActivity(RuntimePermissionActivity.class);
                 break;
             default:
                 break;

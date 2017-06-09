@@ -110,6 +110,12 @@
             android:layout_height="wrap_content"
             android:text="@string/get_dimension_name"/>
 
+        <Button
+            android:id="@+id/btn_runtime_permission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/runtime_permission_name"/>
+
 
     </LinearLayout>
 </ScrollView>
