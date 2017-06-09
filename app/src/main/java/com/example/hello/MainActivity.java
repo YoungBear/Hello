@@ -19,7 +19,7 @@ import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
-import com.example.hello.activity.tab_layout.RuntimePermissionActivity;
+import com.example.hello.activity.RuntimePermissionActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.mylibrary.LogUtils;
 

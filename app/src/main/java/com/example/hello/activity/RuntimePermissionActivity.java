@@ -1,4 +1,4 @@
-package com.example.hello.activity.tab_layout;
+package com.example.hello.activity;
 
 import android.Manifest;
 import android.content.Context;

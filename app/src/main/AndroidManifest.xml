@@ -120,7 +120,7 @@
             android:label="@string/get_dimension_name">
         </activity>
         <activity
-            android:name=".activity.tab_layout.RuntimePermissionActivity"
+            android:name=".activity.RuntimePermissionActivity"
             android:label="@string/runtime_permission_name">
         </activity>
     </application>
