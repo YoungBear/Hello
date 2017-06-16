@@ -368,9 +368,17 @@ http://blog.csdn.net/jason0539/article/details/42743531
 
 使用步骤：
 
-1. 在AndroidStudio上安装Android Butterknife Zelezny插件，完成后重启AS；
-2. 导入butterknife.jar或者在build.gradle添加compile 'com.jakewharton:butterknife:7.0.0'
-3. 在layout资源文件上点击右键，选择Generate 然后选择 Generate ButterKnife Injections，生成对话框，在里边选择需要的控件，可以对其进行命名，添加onClick监听。
+(1). 在AndroidStudio上安装Android Butterknife Zelezny插件，完成后重启AS；
+
+(2). 在build.gradle添加依赖：
+```
+dependencies {
+  compile 'com.jakewharton:butterknife:8.6.0'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+}
+```
+
+(3). 在layout资源文件上点击右键，选择Generate 然后选择 Generate ButterKnife Injections，生成对话框，在里边选择需要的控件，可以对其进行命名，添加onClick监听。
 
 ![](https://github.com/avast/android-butterknife-zelezny/blob/master/img/zelezny_animated.gif)
 
