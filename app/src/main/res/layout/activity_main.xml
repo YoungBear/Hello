@@ -95,6 +95,11 @@
             style="@style/ButtonStyle"
             android:text="@string/runtime_permission_name"/>
 
+        <Button
+            android:id="@+id/btn_easy_permissions"
+            style="@style/ButtonStyle"
+            android:text="@string/easy_permissions_name"/>
+
 
     </LinearLayout>
 </ScrollView>

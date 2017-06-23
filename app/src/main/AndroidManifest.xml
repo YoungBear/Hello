@@ -123,6 +123,10 @@
             android:name=".activity.RuntimePermissionActivity"
             android:label="@string/runtime_permission_name">
         </activity>
+        <activity
+            android:name=".activity.EasyPermissionsActivity"
+            android:label="@string/easy_permissions_name">
+        </activity>
     </application>
 
 </manifest>

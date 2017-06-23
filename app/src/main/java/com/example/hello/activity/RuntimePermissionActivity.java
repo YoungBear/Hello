@@ -139,7 +139,7 @@ public class RuntimePermissionActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LogUtils.d(TAG, "onActivityResult, requestCode: " + requestCode + ", resultCode");
+        LogUtils.d(TAG, "onActivityResult, requestCode: " + requestCode + ", resultCode: " + resultCode);
         switch (requestCode) {
             case REQUEST_CAMERA_CODE: {
                 if (resultCode == RESULT_OK) {

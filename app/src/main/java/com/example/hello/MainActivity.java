@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.example.hello.activity.AppActivity;
 import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
+import com.example.hello.activity.EasyPermissionsActivity;
 import com.example.hello.activity.GetDimensionActivity;
 import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
@@ -60,6 +61,8 @@ public class MainActivity extends Activity {
     Button mBtnGetDimension;
     @BindView(R.id.btn_runtime_permission)
     Button mBtnRuntimePermission;
+    @BindView(R.id.btn_easy_permissions)
+    Button mBtnEasyPermissions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +92,8 @@ public class MainActivity extends Activity {
             R.id.btn_intent,
             R.id.btn_tab,
             R.id.btn_get_dimension,
-            R.id.btn_runtime_permission
+            R.id.btn_runtime_permission,
+            R.id.btn_easy_permissions
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -137,6 +141,9 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btn_runtime_permission:
                 startActivity(RuntimePermissionActivity.class);
+                break;
+            case R.id.btn_easy_permissions:
+                startActivity(EasyPermissionsActivity.class);
                 break;
             default:
                 break;
