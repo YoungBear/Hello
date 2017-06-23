@@ -109,6 +109,7 @@ public class EasyPermissionsActivity extends BaseActivity
     }
 
     private void openCamera() {
+        LogUtils.d(TAG, "openCamera start...");
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, REQUEST_CAMERA_CODE);
     }

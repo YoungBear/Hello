@@ -1,5 +1,63 @@
 # 这是一个日常练习的程序
 
+## 使用EasyPermissions处理动态权限
+github地址：https://github.com/googlesamples/easypermissions
+
+添加依赖：
+```
+dependencies {
+    compile 'pub.devrel:easypermissions:0.4.2'
+}
+```
+
+使用：
+
+**第一步：**
+Activity或者Fragment需要Override onRequestPermissionsResult方法，并且在其中添加如下代码：
+```
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+```
+
+**第二步：检查权限**
+```
+    @AfterPermissionGranted(RC_CALL_PHONE_PERM)
+    public void callPhoneTask() {
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.CALL_PHONE)) {
+            // Have permissions, do the thing!
+            //callPhone();
+        } else {
+            // Ask for call phone permission
+            EasyPermissions.requestPermissions(this, getString(R.string.rationale_call_phone),
+                    RC_CALL_PHONE_PERM, Manifest.permission.CALL_PHONE);
+
+        }
+    }
+```
+
+**第三步：**实现EasyPermissions.PermissionCallbacks接口(可选的)
+```
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
+
+        // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
+        // This will display a dialog directing them to enable the permission in app settings.
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this).build().show();
+        }
+    }
+```
+
 # getDimension,getDimensionPixelSize,getDimensionPixelOffset
 
 `public float getDimension(@DimenRes int id)`
