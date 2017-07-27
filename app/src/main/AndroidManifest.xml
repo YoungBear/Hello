@@ -127,6 +127,10 @@
             android:name=".activity.EasyPermissionsActivity"
             android:label="@string/easy_permissions_name">
         </activity>
+        <activity
+            android:name=".activity.FtpUploadActivity"
+            android:label="@string/ftp_upload_name">
+        </activity>
     </application>
 
 </manifest>

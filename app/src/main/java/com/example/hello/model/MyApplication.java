@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import net.gotev.uploadservice.UploadService;
+
 /**
  * Created by bearyang on 2016/12/16.
  */
@@ -26,5 +28,12 @@ public class MyApplication extends Application {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+
+        // setup the broadcast action namespace string which will
+        // be used to notify upload status.
+        // Gradle automatically generates proper variable as below.
+        // Or, you can define it manually.
+        UploadService.NAMESPACE = "com.example.hello";
+
     }
 }

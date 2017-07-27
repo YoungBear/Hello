@@ -10,6 +10,7 @@ import com.example.hello.activity.AppActivity;
 import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.EasyPermissionsActivity;
+import com.example.hello.activity.FtpUploadActivity;
 import com.example.hello.activity.GetDimensionActivity;
 import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
@@ -63,6 +64,8 @@ public class MainActivity extends Activity {
     Button mBtnRuntimePermission;
     @BindView(R.id.btn_easy_permissions)
     Button mBtnEasyPermissions;
+    @BindView(R.id.btn_ftp_upload)
+    Button mBtnFtpUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +96,8 @@ public class MainActivity extends Activity {
             R.id.btn_tab,
             R.id.btn_get_dimension,
             R.id.btn_runtime_permission,
-            R.id.btn_easy_permissions
+            R.id.btn_easy_permissions,
+            R.id.btn_ftp_upload
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -145,6 +149,8 @@ public class MainActivity extends Activity {
             case R.id.btn_easy_permissions:
                 startActivity(EasyPermissionsActivity.class);
                 break;
+            case R.id.btn_ftp_upload:
+                startActivity(FtpUploadActivity.class);
             default:
                 break;
         }

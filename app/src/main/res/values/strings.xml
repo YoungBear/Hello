@@ -19,6 +19,7 @@
     <string name="get_dimension_name">GetDimension Activity</string>
     <string name="runtime_permission_name">RuntimePermission Activity</string>
     <string name="easy_permissions_name">EasyPermissions Activity</string>
+    <string name="ftp_upload_name">Ftp Upload Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -35,5 +36,13 @@
     <string name="rationale_camera">This app needs access to your camera so you can take pictures.</string>
     <string name="rationale_call_phone">This app needs use call phone to call someone.</string>
 
+
+    <!-- ftp upload start -->
+    <string name="ftp_upload">FTP Upload</string>
+    <string name="uploading">Uploaded [[UPLOADED_FILES]] of [[TOTAL_FILES]] at [[UPLOAD_RATE]] - [[PROGRESS]]</string>
+    <string name="upload_success">Upload completed successfully in [[ELAPSED_TIME]]</string>
+    <string name="upload_error">Error while uploading</string>
+    <string name="upload_cancelled">Upload has been cancelled</string>
+    <!-- ftp upload end -->
 
 </resources>

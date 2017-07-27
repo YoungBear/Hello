@@ -100,6 +100,11 @@
             style="@style/ButtonStyle"
             android:text="@string/easy_permissions_name"/>
 
+        <Button
+            android:id="@+id/btn_ftp_upload"
+            style="@style/ButtonStyle"
+            android:text="@string/ftp_upload_name"/>
+
 
     </LinearLayout>
 </ScrollView>
