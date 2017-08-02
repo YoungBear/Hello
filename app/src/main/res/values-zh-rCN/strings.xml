@@ -20,6 +20,7 @@
     <string name="runtime_permission_name">运行时权限 Activity</string>
     <string name="easy_permissions_name">使用EasyPermissions 处理运行时权限</string>
     <string name="ftp_upload_name">Ftp 上传</string>
+    <string name="ftp_gyroscope_name">陀螺仪传感器</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode

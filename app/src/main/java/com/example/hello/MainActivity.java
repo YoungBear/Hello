@@ -22,6 +22,7 @@ import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.hello.activity.RuntimePermissionActivity;
+import com.example.hello.activity.sensor.GyroscopeActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.mylibrary.LogUtils;
 
@@ -66,6 +67,8 @@ public class MainActivity extends Activity {
     Button mBtnEasyPermissions;
     @BindView(R.id.btn_ftp_upload)
     Button mBtnFtpUpload;
+    @BindView(R.id.btn_gyroscope)
+    Button mBtnGyroscope;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +100,8 @@ public class MainActivity extends Activity {
             R.id.btn_get_dimension,
             R.id.btn_runtime_permission,
             R.id.btn_easy_permissions,
-            R.id.btn_ftp_upload
+            R.id.btn_ftp_upload,
+            R.id.btn_gyroscope
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -151,6 +155,8 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btn_ftp_upload:
                 startActivity(FtpUploadActivity.class);
+            case R.id.btn_gyroscope:
+                startActivity(GyroscopeActivity.class);
             default:
                 break;
         }

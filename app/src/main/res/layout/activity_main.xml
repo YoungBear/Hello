@@ -104,6 +104,10 @@
             android:id="@+id/btn_ftp_upload"
             style="@style/ButtonStyle"
             android:text="@string/ftp_upload_name"/>
+        <Button
+            android:id="@+id/btn_gyroscope"
+            style="@style/ButtonStyle"
+            android:text="@string/ftp_gyroscope_name"/>
 
 
     </LinearLayout>

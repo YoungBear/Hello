@@ -131,6 +131,8 @@
             android:name=".activity.FtpUploadActivity"
             android:label="@string/ftp_upload_name">
         </activity>
+        <activity android:name=".activity.sensor.GyroscopeActivity">
+        </activity>
     </application>
 
 </manifest>
