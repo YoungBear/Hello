@@ -7,6 +7,11 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <permission
         android:name="com.example.hello.provider.read"
@@ -131,7 +136,13 @@
             android:name=".activity.FtpUploadActivity"
             android:label="@string/ftp_upload_name">
         </activity>
-        <activity android:name=".activity.sensor.GyroscopeActivity">
+        <activity
+            android:name=".activity.sensor.GyroscopeActivity"
+            android:label="@string/gyroscope_name">
+        </activity>
+        <activity
+            android:name=".activity.TelephonyInfoActivity"
+            android:label="@string/telephony_info_name">
         </activity>
     </application>
 

@@ -20,7 +20,8 @@
     <string name="runtime_permission_name">RuntimePermission Activity</string>
     <string name="easy_permissions_name">EasyPermissions Activity</string>
     <string name="ftp_upload_name">Ftp Upload Activity</string>
-    <string name="ftp_gyroscope_name">Gyroscope Sensor</string>
+    <string name="gyroscope_name">Gyroscope Sensor</string>
+    <string name="telephony_info_name">Telephony Info Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode

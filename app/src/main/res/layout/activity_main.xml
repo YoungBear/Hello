@@ -107,7 +107,12 @@
         <Button
             android:id="@+id/btn_gyroscope"
             style="@style/ButtonStyle"
-            android:text="@string/ftp_gyroscope_name"/>
+            android:text="@string/gyroscope_name"/>
+
+        <Button
+            android:id="@+id/btn_telephony"
+            style="@style/ButtonStyle"
+            android:text="@string/telephony_info_name"/>
 
 
     </LinearLayout>

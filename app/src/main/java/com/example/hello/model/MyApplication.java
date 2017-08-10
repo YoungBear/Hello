@@ -35,5 +35,11 @@ public class MyApplication extends Application {
         // Or, you can define it manually.
         UploadService.NAMESPACE = "com.example.hello";
 
+        // TODO: 2017/8/9 请求权限
+//        // MeasureContext
+//        MeasureContext measureContext = MeasureContext.getInstance();
+//        measureContext.setContext(this);
+//        measureContext.init();
+
     }
 }
