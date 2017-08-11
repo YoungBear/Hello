@@ -22,6 +22,7 @@
     <string name="ftp_upload_name">Ftp Upload Activity</string>
     <string name="gyroscope_name">Gyroscope Sensor</string>
     <string name="telephony_info_name">Telephony Info Activity</string>
+    <string name="picture_name">Show Picture</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -46,5 +47,9 @@
     <string name="upload_error">Error while uploading</string>
     <string name="upload_cancelled">Upload has been cancelled</string>
     <!-- ftp upload end -->
+
+    <!-- picture start -->
+    <string name="choose_picture">Choose Picture</string>
+    <!-- picture end -->
 
 </resources>

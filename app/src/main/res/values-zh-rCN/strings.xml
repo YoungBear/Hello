@@ -22,6 +22,7 @@
     <string name="ftp_upload_name">Ftp 上传</string>
     <string name="gyroscope_name">陀螺仪传感器</string>
     <string name="telephony_info_name">获取手机信号信息</string>
+    <string name="picture_name">浏览图片</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -45,5 +46,9 @@
     <string name="upload_error">上传出错</string>
     <string name="upload_cancelled">上传已经取消</string>
     <!-- ftp upload end -->
+
+    <!-- picture start -->
+    <string name="choose_picture">选择图片</string>
+    <!-- picture end -->
 
 </resources>

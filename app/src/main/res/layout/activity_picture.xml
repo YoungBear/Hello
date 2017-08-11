@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hello.activity.PictureActivity">
+
+    <com.shizhefei.view.hvscrollview.HVScrollView
+        android:id="@+id/guide_hv_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="horizontal|vertical"
+        android:scrollbars="horizontal|vertical"
+        >
+
+        <ImageView
+            android:id="@+id/iv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"/>
+
+    </com.shizhefei.view.hvscrollview.HVScrollView>
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<HorizontalScrollView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_test"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:scaleType="fitXY"/>-->
+    <!--</HorizontalScrollView>-->
+    <!--</ScrollView>-->
+
+    <Button
+        android:id="@+id/btn_load_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/choose_picture"/>
+
+    <RelativeLayout
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/btn_load_picture"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_green_light"
+        >
+
+        <ImageView
+            android:id="@+id/iv_small_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="1dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_small_border"
+            android:layout_width="18dp"
+            android:layout_height="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="gone"
+            android:background="@drawable/shape_bg"/>
+
+    </RelativeLayout>
+
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="180dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_below="@id/btn_load_picture"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:padding="1dp"-->
+    <!--android:background="@android:color/holo_green_light">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_small_border"-->
+    <!--android:layout_width="192dp"-->
+    <!--android:layout_height="108dp"-->
+    <!--android:background="@drawable/shape_bg"/>-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_small_test"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+
+    <!--/>-->
+
+    <!--</RelativeLayout>-->
+
+
+
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/picture_name"
+        android:visibility="gone"/>
+
+</RelativeLayout>

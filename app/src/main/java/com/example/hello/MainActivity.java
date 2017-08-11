@@ -16,6 +16,7 @@ import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
 import com.example.hello.activity.IntentActivity;
 import com.example.hello.activity.NetWorkStateActivity;
+import com.example.hello.activity.PictureActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
 import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
@@ -72,6 +73,8 @@ public class MainActivity extends Activity {
     Button mBtnGyroscope;
     @BindView(R.id.btn_telephony)
     Button mBtnTelephony;
+    @BindView(R.id.btn_picture)
+    Button mBtnPicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,8 @@ public class MainActivity extends Activity {
             R.id.btn_easy_permissions,
             R.id.btn_ftp_upload,
             R.id.btn_gyroscope,
-            R.id.btn_telephony
+            R.id.btn_telephony,
+            R.id.btn_picture
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -165,6 +169,9 @@ public class MainActivity extends Activity {
                 break;
             case R.id.btn_telephony:
                 startActivity(TelephonyInfoActivity.class);
+                break;
+            case R.id.btn_picture:
+                startActivity(PictureActivity.class);
                 break;
             default:
                 break;
