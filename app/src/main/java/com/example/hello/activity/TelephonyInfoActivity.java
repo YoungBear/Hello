@@ -1,10 +1,14 @@
 package com.example.hello.activity;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.CellInfo;
 import android.telephony.CellLocation;
 import android.telephony.PhoneStateListener;
@@ -15,9 +19,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
+import com.example.measuresdk.utils.PermissionUtils;
 import com.example.mylibrary.phone.MeasureContext;
 import com.example.mylibrary.phone.MyPhoneStateListener;
 import com.example.mylibrary.phone.TelephonyController;
@@ -35,8 +41,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class TelephonyInfoActivity extends BaseActivity
-        implements EasyPermissions.PermissionCallbacks {
+public class TelephonyInfoActivity extends BaseActivity{
 
     private static final String TAG = "TelephonyInfoActivity";
 
@@ -65,6 +70,8 @@ public class TelephonyInfoActivity extends BaseActivity
     MeasureContext mMeasureContext;
     MeasureData mMeasureData;
 
+    private com.example.measuresdk.MeasureContext myMeasureContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,12 +80,18 @@ public class TelephonyInfoActivity extends BaseActivity
         mContext = this;
         initView();
 
-        checkPermission();
+        //MeasureContext
+        myMeasureContext = com.example.measuresdk.MeasureContext.getInstance();
+        /**现请求权限，然后在请求权限成功回调函数里init*/
+        myMeasureContext.requestPermission(this);
+
+
+//        checkPermission();
         // MeasureContext
-        mMeasureContext = MeasureContext.getInstance();
-        mMeasureContext.setContext(getApplicationContext());
-        mMeasureContext.init();
-        initTelephony();
+//        mMeasureContext = MeasureContext.getInstance();
+//        mMeasureContext.setContext(getApplicationContext());
+//        mMeasureContext.init();
+//        initTelephony();
     }
 
 
@@ -90,7 +103,7 @@ public class TelephonyInfoActivity extends BaseActivity
     protected void onResume() {
         Log.d(TAG, "onResume: ");
         super.onResume();
-        mMeasureContext.register();
+//        mMeasureContext.register();
 
 //        mTelephonyManager.listen(mPhoneStateListener, EVENTS);
     }
@@ -99,7 +112,7 @@ public class TelephonyInfoActivity extends BaseActivity
     protected void onPause() {
         Log.d(TAG, "onPause: ");
         super.onPause();
-        mMeasureContext.unregister();
+//        mMeasureContext.unregister();
 
 //        mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
     }
@@ -107,6 +120,37 @@ public class TelephonyInfoActivity extends BaseActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (PermissionUtils.REQUEST_CODE == requestCode) {
+            for (int i = 0; i < permissions.length; i++) {
+                if (PackageManager.PERMISSION_GRANTED == grantResults[i]) {
+                    //do nothing
+                } else {
+                    if (!ActivityCompat.shouldShowRequestPermissionRationale(
+                            this, permissions[i])) {
+                        AlertDialog dialog = new AlertDialog.Builder(this)
+                                .setMessage("need permission: " + permissions[i])
+                                .create();
+                        dialog.show();
+                    }
+                    /**
+                     * 未获得权限，直接退出该Activity
+                     * */
+                    Toast.makeText(this, "缺少权限: " + permissions[i], Toast.LENGTH_SHORT).show();
+                    finish();
+                    return;
+                }
+            }
+            if (myMeasureContext != null) {
+                myMeasureContext.init(this);
+            }
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void checkPermission() {
@@ -208,16 +252,6 @@ public class TelephonyInfoActivity extends BaseActivity
 
             }
         });
-    }
-
-    @Override
-    public void onPermissionsGranted(int requestCode, List<String> perms) {
-
-    }
-
-    @Override
-    public void onPermissionsDenied(int requestCode, List<String> perms) {
-
     }
 
     @OnClick({R.id.btn_start, R.id.btn_stop, R.id.btn_write})
