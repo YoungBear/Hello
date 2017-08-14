@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone.common;
+package com.example.measuresdk.common;
 
 import java.lang.reflect.Type;
 

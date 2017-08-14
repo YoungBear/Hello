@@ -1,11 +1,11 @@
-package com.example.mylibrary.phone.entity;
+package com.example.measuresdk.entity;
 
 import android.telephony.CellInfo;
 import android.telephony.CellInfoGsm;
 import android.telephony.NeighboringCellInfo;
 
-import com.example.mylibrary.phone.common.ParamField;
-import com.example.mylibrary.phone.utils.NetworkUtils;
+import com.example.measuresdk.common.ParamField;
+import com.example.measuresdk.utils.NetworkUtils;
 
 import java.util.ArrayList;
 import java.util.List;

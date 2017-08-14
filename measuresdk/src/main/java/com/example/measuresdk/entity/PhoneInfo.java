@@ -1,9 +1,9 @@
-package com.example.mylibrary.phone.entity;
+package com.example.measuresdk.entity;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
-import com.example.mylibrary.phone.utils.NetworkUtils;
+import com.example.measuresdk.utils.NetworkUtils;
 
 /**
  * Created by ysx on 2017/8/8.

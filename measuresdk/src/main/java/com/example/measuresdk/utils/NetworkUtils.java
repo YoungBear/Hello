@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone.utils;
+package com.example.measuresdk.utils;
 
 /**
  * Created by ysx on 2017/8/8.

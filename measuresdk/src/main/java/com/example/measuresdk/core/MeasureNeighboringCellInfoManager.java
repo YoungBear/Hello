@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone.core;
+package com.example.measuresdk.core;
 
 import android.content.Context;
 import android.telephony.CellInfo;
@@ -8,11 +8,11 @@ import android.telephony.CellInfoLte;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 
+import com.example.measuresdk.MeasureContext;
+import com.example.measuresdk.entity.MeasureNeighboringCellInfo;
+import com.example.measuresdk.entity.MeasureNeighboringCellInfoCdma;
+import com.example.measuresdk.entity.MeasureNeighboringCellInfoLte;
 import com.example.mylibrary.LogUtils;
-import com.example.mylibrary.phone.MeasureContext;
-import com.example.mylibrary.phone.entity.MeasureNeighboringCellInfo;
-import com.example.mylibrary.phone.entity.MeasureNeighboringCellInfoCdma;
-import com.example.mylibrary.phone.entity.MeasureNeighboringCellInfoLte;
 
 import java.util.ArrayList;
 import java.util.List;

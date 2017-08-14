@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone;
+package com.example.measuresdk;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;

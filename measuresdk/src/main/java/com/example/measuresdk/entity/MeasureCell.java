@@ -1,12 +1,12 @@
-package com.example.mylibrary.phone.entity;
+package com.example.measuresdk.entity;
 
 import android.telephony.CellInfo;
 import android.telephony.SignalStrength;
 import android.util.Log;
 
-import com.example.mylibrary.phone.MeasureContext;
-import com.example.mylibrary.phone.common.ParamField;
-import com.example.mylibrary.phone.constant.CellConstant;
+import com.example.measuresdk.MeasureContext;
+import com.example.measuresdk.common.ParamField;
+import com.example.measuresdk.constant.CellConstant;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone.entity;
+package com.example.measuresdk.entity;
 
 import android.content.Context;
 import android.telephony.CellIdentityLte;
@@ -11,8 +11,8 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 
-import com.example.mylibrary.phone.MeasureContext;
-import com.example.mylibrary.phone.common.ParamField;
+import com.example.measuresdk.MeasureContext;
+import com.example.measuresdk.common.ParamField;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone.entity;
+package com.example.measuresdk.entity;
 
 import java.util.ArrayList;
 import java.util.List;

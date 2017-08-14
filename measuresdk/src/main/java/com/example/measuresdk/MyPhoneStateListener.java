@@ -1,4 +1,4 @@
-package com.example.mylibrary.phone;
+package com.example.measuresdk;
 
 import android.annotation.TargetApi;
 import android.content.Context;

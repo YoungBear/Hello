@@ -1,9 +1,9 @@
-package com.example.mylibrary.phone;
+package com.example.measuresdk;
 
 import android.os.Environment;
 import android.util.Log;
 
-import com.example.mylibrary.phone.entity.MeasureData;
+import com.example.measuresdk.entity.MeasureData;
 
 import java.io.File;
 import java.io.FileOutputStream;

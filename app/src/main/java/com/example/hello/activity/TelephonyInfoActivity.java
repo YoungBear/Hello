@@ -18,14 +18,14 @@ import android.widget.TextView;
 
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
+import com.example.measuresdk.MeasureContext;
 import com.example.mylibrary.permission.PermissionsActivity;
 import com.example.mylibrary.permission.PermissionsChecker;
-import com.example.mylibrary.phone.MeasureContext;
-import com.example.mylibrary.phone.MyPhoneStateListener;
-import com.example.mylibrary.phone.TelephonyController;
-import com.example.mylibrary.phone.WriteFile;
-import com.example.mylibrary.phone.entity.MeasureData;
-import com.example.mylibrary.phone.entity.MeasureReport;
+import com.example.measuresdk.MyPhoneStateListener;
+import com.example.measuresdk.TelephonyController;
+import com.example.measuresdk.WriteFile;
+import com.example.measuresdk.entity.MeasureData;
+import com.example.measuresdk.entity.MeasureReport;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -59,10 +59,9 @@ public class TelephonyInfoActivity extends BaseActivity {
     private MyPhoneStateListener mPhoneStateListener;
 
     private Context mContext;
-    MeasureContext mMeasureContext;
-    MeasureData mMeasureData;
 
-    private com.example.measuresdk.MeasureContext myMeasureContext;
+    private MeasureData mMeasureData;
+    private MeasureContext mMeasureContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,19 +71,7 @@ public class TelephonyInfoActivity extends BaseActivity {
         mContext = this;
         initView();
         //MeasureContext
-        myMeasureContext = com.example.measuresdk.MeasureContext.getInstance();
-        /**
-         * 先请求权限，然后在请求权限成功回调函数里init
-         * */
-//        myMeasureContext.requestPermission(this);
-
-
-//        checkPermission();
-        // MeasureContext
-//        mMeasureContext = MeasureContext.getInstance();
-//        mMeasureContext.setContext(getApplicationContext());
-//        mMeasureContext.init();
-//        initTelephony();
+        mMeasureContext = MeasureContext.getInstance();
     }
 
 
@@ -94,7 +81,7 @@ public class TelephonyInfoActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        Log.d(TAG, "onResume: myMeasureContext.isInited(): " + myMeasureContext.isInited());
+        Log.d(TAG, "onResume: mMeasureContext.isInited(): " + mMeasureContext.isInited());
         super.onResume();
         if (PermissionsChecker.lacksPermissions(this,
                 com.example.measuresdk.MeasureContext.PERMISSIONS)) {
@@ -102,22 +89,25 @@ public class TelephonyInfoActivity extends BaseActivity {
                     com.example.measuresdk.MeasureContext.REQUEST_CODE,
                     com.example.measuresdk.MeasureContext.PERMISSIONS);
         } else {
-            if (!myMeasureContext.isInited()) {
-                myMeasureContext.init(this);
+            if (!mMeasureContext.isInited()) {
+                mMeasureContext.init(this);
             }
+            mMeasureContext.register();
+//            mTelephonyManager.listen(mPhoneStateListener, EVENTS);
+//            initTelephony();
         }
 
 
-//        mMeasureContext.register();
 
-//        mTelephonyManager.listen(mPhoneStateListener, EVENTS);
     }
 
     @Override
     protected void onPause() {
         Log.d(TAG, "onPause: ");
         super.onPause();
-//        mMeasureContext.unregister();
+        if (mMeasureContext.isRegistered()) {
+            mMeasureContext.unregister();
+        }
 
 //        mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
     }
