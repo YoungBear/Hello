@@ -1,14 +1,10 @@
 package com.example.hello.activity;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.CellInfo;
 import android.telephony.CellLocation;
 import android.telephony.PhoneStateListener;
@@ -19,11 +15,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
-import com.example.measuresdk.utils.PermissionUtils;
+import com.example.mylibrary.permission.PermissionsActivity;
+import com.example.mylibrary.permission.PermissionsChecker;
 import com.example.mylibrary.phone.MeasureContext;
 import com.example.mylibrary.phone.MyPhoneStateListener;
 import com.example.mylibrary.phone.TelephonyController;
@@ -39,14 +35,10 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import pub.devrel.easypermissions.EasyPermissions;
 
-public class TelephonyInfoActivity extends BaseActivity{
+public class TelephonyInfoActivity extends BaseActivity {
 
     private static final String TAG = "TelephonyInfoActivity";
-
-    private static final int RC_READ_PHONE_STATE_PERM = 1;
-    private static final int RC_ACCESS_COARSE_LOCATION_PERM = 2;
 
     private static final int EVENTS =
             PhoneStateListener.LISTEN_CELL_LOCATION
@@ -79,11 +71,12 @@ public class TelephonyInfoActivity extends BaseActivity{
         ButterKnife.bind(this);
         mContext = this;
         initView();
-
         //MeasureContext
         myMeasureContext = com.example.measuresdk.MeasureContext.getInstance();
-        /**现请求权限，然后在请求权限成功回调函数里init*/
-        myMeasureContext.requestPermission(this);
+        /**
+         * 先请求权限，然后在请求权限成功回调函数里init
+         * */
+//        myMeasureContext.requestPermission(this);
 
 
 //        checkPermission();
@@ -101,8 +94,20 @@ public class TelephonyInfoActivity extends BaseActivity{
 
     @Override
     protected void onResume() {
-        Log.d(TAG, "onResume: ");
+        Log.d(TAG, "onResume: myMeasureContext.isInited(): " + myMeasureContext.isInited());
         super.onResume();
+        if (PermissionsChecker.lacksPermissions(this,
+                com.example.measuresdk.MeasureContext.PERMISSIONS)) {
+            PermissionsActivity.startActivityForResult(this,
+                    com.example.measuresdk.MeasureContext.REQUEST_CODE,
+                    com.example.measuresdk.MeasureContext.PERMISSIONS);
+        } else {
+            if (!myMeasureContext.isInited()) {
+                myMeasureContext.init(this);
+            }
+        }
+
+
 //        mMeasureContext.register();
 
 //        mTelephonyManager.listen(mPhoneStateListener, EVENTS);
@@ -119,50 +124,17 @@ public class TelephonyInfoActivity extends BaseActivity{
 
     @Override
     protected void onDestroy() {
+        Log.d(TAG, "onDestroy: ");
         super.onDestroy();
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        if (PermissionUtils.REQUEST_CODE == requestCode) {
-            for (int i = 0; i < permissions.length; i++) {
-                if (PackageManager.PERMISSION_GRANTED == grantResults[i]) {
-                    //do nothing
-                } else {
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(
-                            this, permissions[i])) {
-                        AlertDialog dialog = new AlertDialog.Builder(this)
-                                .setMessage("need permission: " + permissions[i])
-                                .create();
-                        dialog.show();
-                    }
-                    /**
-                     * 未获得权限，直接退出该Activity
-                     * */
-                    Toast.makeText(this, "缺少权限: " + permissions[i], Toast.LENGTH_SHORT).show();
-                    finish();
-                    return;
-                }
-            }
-            if (myMeasureContext != null) {
-                myMeasureContext.init(this);
-            }
-        }
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    private void checkPermission() {
-        if (!EasyPermissions.hasPermissions(this, Manifest.permission.READ_PHONE_STATE)) {
-            // Ask for READ_PHONE_STATE permission
-            EasyPermissions.requestPermissions(this, "need permission READ_PHONE_STATE",
-                    RC_READ_PHONE_STATE_PERM, Manifest.permission.READ_PHONE_STATE);
-        }
-        if (!EasyPermissions.hasPermissions(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            // Ask for ACCESS_COARSE_LOCATION permission
-            EasyPermissions.requestPermissions(this, "need permission ACCESS_COARSE_LOCATION",
-                    RC_ACCESS_COARSE_LOCATION_PERM, Manifest.permission.ACCESS_COARSE_LOCATION);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: requestCode: " + requestCode + ", resultCode: " + resultCode);
+        if (com.example.measuresdk.MeasureContext.REQUEST_CODE == requestCode
+                && PermissionsActivity.PERMISSIONS_DENIED == resultCode) {
+            finish();
         }
     }
 
