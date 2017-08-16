@@ -43,6 +43,7 @@ public class MeasureContext {
     public static final String[] PERMISSIONS = {
             Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
@@ -61,9 +62,6 @@ public class MeasureContext {
     private CellLocation mCellLocation;
     private SignalStrength mSignalStrength;
     private MeasureCell.SignalStrengthResult mSignalStrengthResult;
-
-
-
 
 
     private MeasureContext() {
