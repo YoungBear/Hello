@@ -140,8 +140,8 @@ public class MeasureCellLte extends MeasureCell {
     }
 
     @Override
-    public List<ParamField> ToPropertyList() {
-        List<ParamField> fieldList = super.ToPropertyList();
+    public List<ParamField> toPropertyList() {
+        List<ParamField> fieldList = super.toPropertyList();
         fieldList.add(new ParamField("PCI", (this.getPci() == 0 ? "-" : this.getPci() + "")));
         fieldList.add(new ParamField("TAC", this.getTac() + ""));
         fieldList.add(new ParamField("CI", this.getCid() + ""));

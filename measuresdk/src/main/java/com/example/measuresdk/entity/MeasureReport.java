@@ -74,17 +74,17 @@ public class MeasureReport {
     }
 
     public String getRsrp() {
-        if (measureLteCells.size() >= 0) {
+        if (measureLteCells.size() > 0) {
             MeasureCell measureCell = measureLteCells.get(0);
 //            if (measureCell instanceof MeasureCellLte) {
 //                return String.valueOf(((MeasureCellLte) measureCell).getR);
 //            }
-        } else if (measureGsmCells.size() >= 0) {
+        } else if (measureGsmCells.size() > 0) {
 //            MeasureCell measureCell = measureLteCells.get(0);
 //            if (measureCell instanceof MeasureCellGsm) {
 //                return String.valueOf(((MeasureCellGsm) measureCell).getPsc());
 //            }
-        } else if (measureCdmaCells.size() >= 0) {
+        } else if (measureCdmaCells.size() > 0) {
 //            MeasureCell measureCell = measureLteCells.get(0);
 //            if (measureCell instanceof MeasureCellCdma) {
 //                return String.valueOf(((MeasureCellCdma) measureCell).getCdmaRSSI());

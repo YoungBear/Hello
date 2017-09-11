@@ -133,8 +133,8 @@ public class MeasureCellCdma extends MeasureCell {
     }
 
     @Override
-    public List<ParamField> ToPropertyList() {
-        List<ParamField> fieldList = super.ToPropertyList();
+    public List<ParamField> toPropertyList() {
+        List<ParamField> fieldList = super.toPropertyList();
         fieldList.add(new ParamField("BaseStationId", this.getBaseStationId()
                 + ""));
         fieldList.add(new ParamField("NetworkId", this.networkId + ""));

@@ -20,7 +20,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.hello.R;
@@ -109,6 +108,8 @@ public class PictureActivity extends BaseActivity {
             case R.id.btn_load_picture:
                 selectPicture();
                 break;
+            default:
+                break;
         }
     }
 
@@ -132,8 +133,8 @@ public class PictureActivity extends BaseActivity {
                         try {
                             bitmap = BitmapFactory.decodeStream(getContentResolver()
                                     .openInputStream(imageUri), null, options);
-                            int widthRadio = (int) Math.ceil(options.outWidth / width);
-                            int heightRadio = (int) Math.ceil(options.outHeight / height);
+                            int widthRadio = (int) Math.ceil((float) options.outWidth / (float) width);
+                            int heightRadio = (int) Math.ceil((float) options.outHeight / (float) height);
                             Log.d(TAG, "onActivityResult: options.outWidth: " + options.outWidth
                                     + ", options.outHeight: " + options.outHeight);
 
@@ -256,8 +257,8 @@ public class PictureActivity extends BaseActivity {
 //                mCanvas.translate(scrollX, scrollY);
                 mIvSmallTest.invalidate();
 
-                RelativeLayout.LayoutParams layoutParams =
-                        (RelativeLayout.LayoutParams) mIvSmallBorder.getLayoutParams();
+//                RelativeLayout.LayoutParams layoutParams =
+//                        (RelativeLayout.LayoutParams) mIvSmallBorder.getLayoutParams();
 //                mIvSmallBorder.setTranslationY();
 //                mRectF.set(scrollX, scrollY, scrollX + mScreenWidth, scrollY + mScreenHeight);
 //                mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));

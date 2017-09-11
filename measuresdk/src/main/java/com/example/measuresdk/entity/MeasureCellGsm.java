@@ -89,8 +89,8 @@ public class MeasureCellGsm extends MeasureCell {
 
 
     @Override
-    public List<ParamField> ToPropertyList() {
-        List<ParamField> fieldList = super.ToPropertyList();
+    public List<ParamField> toPropertyList() {
+        List<ParamField> fieldList = super.toPropertyList();
         fieldList.add(new ParamField("LAC", this.getLac() + ""));
         fieldList.add(new ParamField("Cid", this.getCid() + ""));
         fieldList.add(new ParamField("SignalStrength", this.getSignalStrength() + ""));

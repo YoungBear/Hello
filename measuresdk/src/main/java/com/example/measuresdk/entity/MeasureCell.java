@@ -123,7 +123,7 @@ public abstract class MeasureCell {
      *
      * @return 对象数据
      */
-    public List<ParamField> ToPropertyList() {
+    public List<ParamField> toPropertyList() {
         List<ParamField> fieldList = new ArrayList<ParamField>();
         fieldList.add(new ParamField("MCC", this.getMcc() + ""));
         fieldList.add(new ParamField("MNC", this.getMnc() + ""));

@@ -228,6 +228,8 @@ public class TelephonyInfoActivity extends BaseActivity {
             case R.id.btn_write:
                 writeToFile();
                 break;
+            default:
+                break;
         }
     }
 }

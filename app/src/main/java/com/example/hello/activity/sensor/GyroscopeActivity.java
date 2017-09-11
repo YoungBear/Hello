@@ -66,6 +66,9 @@ public class GyroscopeActivity extends BaseActivity {
                     String text = "x: " + x + ", y: " + y + ", z: " + z;
                     Log.d(TAG, text);
                     mTvContent.setText(text);
+                    break;
+                default:
+                    break;
 
 
             }

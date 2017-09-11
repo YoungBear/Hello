@@ -99,7 +99,7 @@ public class RuntimePermissionActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_PERMISSION_CAMERA_CODE: {
-                if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openCamera();
                 } else {
                     Toast.makeText(this,
@@ -110,7 +110,7 @@ public class RuntimePermissionActivity extends BaseActivity {
             }
             break;
             case REQUEST_PERMISSION_CALL_PHONE_CODE: {
-                if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     callPhone();
                 } else {
                     Toast.makeText(this,
@@ -121,7 +121,7 @@ public class RuntimePermissionActivity extends BaseActivity {
             }
             break;
             case REQUEST_PERMISSION_SCAN_CODE_CODE: {
-                if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     scanCode();
                 } else {
                     Toast.makeText(this,

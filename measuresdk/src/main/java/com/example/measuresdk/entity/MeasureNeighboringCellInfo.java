@@ -107,7 +107,7 @@ public class MeasureNeighboringCellInfo {
      *
      * @return 对象数据
      */
-    public List<ParamField> ToPropertyList() {
+    public List<ParamField> toPropertyList() {
         List<ParamField> fieldList = new ArrayList<ParamField>();
         fieldList.add(new ParamField("Lac", this.getLac() + ""));
         fieldList.add(new ParamField("Cid", this.getCid() + ""));
@@ -123,7 +123,8 @@ public class MeasureNeighboringCellInfo {
      *
      * @return 上报字符串
      */
-    public String ToString() {
+    @Override
+    public String toString() {
         return "<na>"
                 + this.getNetworkType()
                 + "|" + this.getLac()

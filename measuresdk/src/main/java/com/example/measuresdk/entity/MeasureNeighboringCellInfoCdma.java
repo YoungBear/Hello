@@ -72,11 +72,11 @@ public class MeasureNeighboringCellInfoCdma extends MeasureNeighboringCellInfo {
      * (non-Javadoc)
      *
      * @see
-     * com.rnop.hook.measure.entity.MeasureNeighboringCellInfo#ToPropertyList()
+     * com.rnop.hook.measure.entity.MeasureNeighboringCellInfo#toPropertyList()
      */
     @Override
-    public List<ParamField> ToPropertyList() {
-        List<ParamField> fieldList = super.ToPropertyList();
+    public List<ParamField> toPropertyList() {
+        List<ParamField> fieldList = super.toPropertyList();
         if (this.baseStationId != -1) {
             fieldList = new ArrayList<ParamField>();
             fieldList.add(new ParamField("BaseStationId", this
@@ -91,7 +91,7 @@ public class MeasureNeighboringCellInfoCdma extends MeasureNeighboringCellInfo {
     }
 
     @Override
-    public String ToString() {
+    public String toString() {
         return "<na>" + this.getNetworkType()
                 + "|" + this.getBaseStationId()
                 + "|" + this.getCid()

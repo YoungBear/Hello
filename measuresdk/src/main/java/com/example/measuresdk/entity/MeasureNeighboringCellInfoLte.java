@@ -89,11 +89,11 @@ public class MeasureNeighboringCellInfoLte extends MeasureNeighboringCellInfo {
     }
 
     /* (non-Javadoc)
-     * @see com.rnop.hook.measure.entity.MeasureNeighboringCellInfo#ToPropertyList()
+     * @see com.rnop.hook.measure.entity.MeasureNeighboringCellInfo#toPropertyList()
      */
     @Override
-    public List<ParamField> ToPropertyList() {
-        List<ParamField> fieldList = super.ToPropertyList();
+    public List<ParamField> toPropertyList() {
+        List<ParamField> fieldList = super.toPropertyList();
 
         if (this.measureCellLte != null) {
             fieldList = new ArrayList<ParamField>();
@@ -123,9 +123,9 @@ public class MeasureNeighboringCellInfoLte extends MeasureNeighboringCellInfo {
     }
 
     @Override
-    public String ToString() {
+    public String toString() {
         if(this.measureCellLte==null) {
-            return super.ToString();
+            return super.toString();
         }
         else {
             return "<na>" + this.getNetworkType()

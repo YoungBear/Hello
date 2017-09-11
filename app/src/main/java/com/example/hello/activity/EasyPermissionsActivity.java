@@ -57,6 +57,8 @@ public class EasyPermissionsActivity extends BaseActivity
             case R.id.btn_call_phone:
                 callPhoneTask();
                 break;
+            default:
+                break;
         }
     }
 

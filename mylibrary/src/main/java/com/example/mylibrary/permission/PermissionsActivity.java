@@ -136,7 +136,7 @@ public class PermissionsActivity extends AppCompatActivity {
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        Log.d(TAG, "onRequestPermissionsResult: requestCode: " + requestCode + ", permissions: " + permissions);
+        Log.d(TAG, "onRequestPermissionsResult: requestCode: " + requestCode);
         if (requestCode == PERMISSION_REQUEST_CODE && hasAllPermissionsGranted(grantResults)) {
             isRequireCheck = true;
             allPermissionsGranted();
