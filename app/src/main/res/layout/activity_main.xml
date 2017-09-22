@@ -119,6 +119,11 @@
             style="@style/ButtonStyle"
             android:text="@string/picture_name"/>
 
+        <Button
+            android:id="@+id/btn_test"
+            style="@style/ButtonStyle"
+            android:text="@string/test_name"/>
+
 
     </LinearLayout>
 </ScrollView>

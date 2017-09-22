@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.hello">
+    package="com.example.hello">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <permission
         android:name="com.example.hello.provider.read"
-        android:label="book provider permission"/>
+        android:label="book provider permission" />
 
     <application
         android:name=".model.MyApplication"
@@ -25,130 +25,107 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="TEST_CHANNEL"
-            android:value="${TEST_CHANNEL}"/>
+            android:value="${TEST_CHANNEL}" />
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.TableLayoutActivity"
-            android:label="@string/table_layout_name">
-        </activity>
+            android:label="@string/table_layout_name"></activity>
         <activity
             android:name=".activity.DragViewActivity"
-            android:label="@string/drag_view_name">
-        </activity>
+            android:label="@string/drag_view_name"></activity>
         <activity
             android:name=".activity.ButterKnifeActivity"
-            android:label="@string/butter_knife_name">
-        </activity>
+            android:label="@string/butter_knife_name"></activity>
         <activity
             android:name=".activity.ReceiverLearnActivity"
-            android:label="@string/receiver_learn_name">
-        </activity>
+            android:label="@string/receiver_learn_name"></activity>
 
         <receiver android:name=".receiver.TestReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.SCREEN_ON"/>
-                <action android:name="android.intent.action.SCREEN_OFF"/>
-                <action android:name="android.intent.action.TIME_TICK"/>
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.TIME_TICK" />
                 <!-- not use -->
             </intent-filter>
         </receiver>
 
         <activity
             android:name=".activity.GetTimeActivity"
-            android:label="@string/get_time_name">
-        </activity>
+            android:label="@string/get_time_name"></activity>
 
-        <receiver android:name=".receiver.HomeKeyListener">
-        </receiver>
+        <receiver android:name=".receiver.HomeKeyListener"></receiver>
 
         <activity
             android:name=".activity.HomeKeyActivity"
-            android:label="@string/home_key_name">
-        </activity>
+            android:label="@string/home_key_name"></activity>
         <activity
             android:name=".activity.NetWorkStateActivity"
-            android:label="@string/network_state_name">
-        </activity>
+            android:label="@string/network_state_name"></activity>
         <activity
             android:name=".activity.SystemPropertiesActivity"
-            android:label="@string/system_properties_name">
-        </activity>
+            android:label="@string/system_properties_name"></activity>
         <activity
             android:name=".activity.AppActivity"
-            android:label="@string/app_activity_name">
-        </activity>
+            android:label="@string/app_activity_name"></activity>
         <activity
             android:name=".activity.OneAppActivity"
-            android:label="@string/one_app_activity_name">
-        </activity>
+            android:label="@string/one_app_activity_name"></activity>
         <activity
             android:name=".activity.StrictModeActivity"
-            android:label="@string/strict_mode_name">
-        </activity>
+            android:label="@string/strict_mode_name"></activity>
         <activity
             android:name=".activity.WebViewActivity"
-            android:label="@string/web_view_name">
-        </activity>
+            android:label="@string/web_view_name"></activity>
         <activity
             android:name=".activity.IntentActivity"
-            android:label="@string/intent_activity_name">
-        </activity>
+            android:label="@string/intent_activity_name"></activity>
 
         <provider
             android:name=".provider.BookProvider"
             android:authorities="com.example.hello.provider.book"
             android:enabled="true"
             android:exported="true"
-            android:permission="com.example.hello.provider.read">
-        </provider>
+            android:permission="com.example.hello.provider.read"></provider>
 
         <activity
             android:name=".activity.tab_layout.TabLayoutFragmentActivity"
-            android:label="@string/tab_layout_fragment_name">
-        </activity>
+            android:label="@string/tab_layout_fragment_name"></activity>
         <activity
             android:name=".activity.tab_layout.TabLayoutMainActivity"
-            android:label="@string/tab_layout_main_name">
-        </activity>
+            android:label="@string/tab_layout_main_name"></activity>
         <activity
             android:name=".activity.GetDimensionActivity"
-            android:label="@string/get_dimension_name">
-        </activity>
+            android:label="@string/get_dimension_name"></activity>
         <activity
             android:name=".activity.RuntimePermissionActivity"
-            android:label="@string/runtime_permission_name">
-        </activity>
+            android:label="@string/runtime_permission_name"></activity>
         <activity
             android:name=".activity.EasyPermissionsActivity"
-            android:label="@string/easy_permissions_name">
-        </activity>
+            android:label="@string/easy_permissions_name"></activity>
         <activity
             android:name=".activity.FtpUploadActivity"
-            android:label="@string/ftp_upload_name">
-        </activity>
+            android:label="@string/ftp_upload_name"></activity>
         <activity
             android:name=".activity.sensor.GyroscopeActivity"
-            android:label="@string/gyroscope_name">
-        </activity>
+            android:label="@string/gyroscope_name"></activity>
         <activity
             android:name=".activity.TelephonyInfoActivity"
-            android:label="@string/telephony_info_name">
-        </activity>
+            android:label="@string/telephony_info_name"></activity>
         <activity
             android:name=".activity.PictureActivity"
             android:label="@string/picture_name"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.FullScreen">
-        </activity>
+            android:theme="@style/AppTheme.FullScreen"></activity>
+        <activity android:name=".activity.TestActivity"></activity>
     </application>
 
 </manifest>

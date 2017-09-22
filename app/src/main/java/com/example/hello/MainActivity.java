@@ -22,6 +22,7 @@ import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.TelephonyInfoActivity;
+import com.example.hello.activity.TestActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.hello.activity.RuntimePermissionActivity;
 import com.example.hello.activity.sensor.GyroscopeActivity;
@@ -75,6 +76,8 @@ public class MainActivity extends Activity {
     Button mBtnTelephony;
     @BindView(R.id.btn_picture)
     Button mBtnPicture;
+    @BindView(R.id.btn_test)
+    Button mBtnTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +112,8 @@ public class MainActivity extends Activity {
             R.id.btn_ftp_upload,
             R.id.btn_gyroscope,
             R.id.btn_telephony,
-            R.id.btn_picture
+            R.id.btn_picture,
+            R.id.btn_test
     })
     public void onClick(View view) {
         switch (view.getId()) {
@@ -173,6 +177,8 @@ public class MainActivity extends Activity {
             case R.id.btn_picture:
                 startActivity(PictureActivity.class);
                 break;
+            case R.id.btn_test:
+                startActivity(TestActivity.class);
             default:
                 break;
         }
