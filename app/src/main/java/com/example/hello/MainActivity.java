@@ -1,6 +1,6 @@
 package com.example.hello;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,24 +18,25 @@ import com.example.hello.activity.IntentActivity;
 import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.PictureActivity;
 import com.example.hello.activity.ReceiverLearnActivity;
+import com.example.hello.activity.RuntimePermissionActivity;
 import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.TelephonyInfoActivity;
 import com.example.hello.activity.TestActivity;
 import com.example.hello.activity.WebViewActivity;
-import com.example.hello.activity.RuntimePermissionActivity;
 import com.example.hello.activity.sensor.GyroscopeActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
+import com.example.hello.base.BaseActivity;
 import com.example.mylibrary.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
-    public static final String TAG = "bearyang";
+    public static final String TAG = "MainActivity";
     @BindView(R.id.btn_table_layout)
     Button mBtnTableLayout;
     @BindView(R.id.btn_drag_view)
@@ -85,6 +86,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         LogUtils.d(TAG, "MainActivity has Created...");
+
     }
 
     private void startActivity(Class<?> clazz) {
