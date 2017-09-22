@@ -21,3 +21,34 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    configuration = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "26.0.0",
+            package          : "com.example.hello",
+            minSdkVersion    : 17,
+            targetSdkVersion : 25,
+
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    libraries = [
+            espressoVersion  : "2.2.2",
+            constraintVersion: "1.0.2",
+            junitVersion     : "4.12",
+
+            supportVersion   : "25.3.1",
+
+            butterknife      : "8.8.1",
+            HVScrollView     : "1.0.1",
+            simplezxing      : "1.3",
+            easypermissions  : "0.4.2",
+            uploadservice    : "3.2.5"
+
+
+    ]
+
+}

@@ -1,6 +1,22 @@
 apply plugin: 'com.android.application'
 
+def cfg = rootProject.ext.configuration // 配置
+def libs = rootProject.ext.libraries // 库
+
 android {
+
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        applicationId cfg.package
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    //签名信息
     signingConfigs {
         release {
             keyAlias 'ysx_signed'
@@ -9,21 +25,13 @@ android {
             storePassword 'TianHua19920628'
         }
     }
-    compileSdkVersion 24
-    buildToolsVersion '25.0.3'
-    defaultConfig {
-        applicationId "com.example.hello"
-        minSdkVersion 17
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            debuggable false
         }
     }
     productFlavors {
@@ -41,23 +49,41 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    //源代码依赖库 start
     compile project(':mylibrary')
     compile project(':measuresdk')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //源代码依赖库 end
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:${libs.espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
+    testCompile "junit:junit:${libs.junitVersion}"
 
 
-    compile 'com.jakewharton:butterknife:8.6.0'
-    compile 'com.acker:simplezxing:1.3'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'pub.devrel:easypermissions:0.4.2'
-    compile 'net.gotev:uploadservice-ftp:3.2.5'
-    compile 'com.shizhefei:HVScrollView:1.0.1'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    //support start
+    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
+    compile "com.android.support:design:${libs.supportVersion}"
+    compile "com.android.support:recyclerview-v7:${libs.supportVersion}"
+    compile "com.android.support:support-v4:${libs.supportVersion}"
+
+    //support end
+
+    //第三方库 start
+
+    compile "com.jakewharton:butterknife:${libs.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${libs.butterknife}"
+
+    compile "com.shizhefei:HVScrollView:${libs.HVScrollView}"
+
+    compile "com.acker:simplezxing:${libs.simplezxing}"
+    compile "pub.devrel:easypermissions:${libs.easypermissions}"
+    compile "net.gotev:uploadservice-ftp:${libs.uploadservice}"
+
+    //第三方库 end
+
+
 }
 
 

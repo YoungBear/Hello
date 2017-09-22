@@ -18,7 +18,7 @@ import static android.os.Build.VERSION_CODES.GINGERBREAD;
 
 public class StrictModeActivity extends BaseActivity {
 
-    public static final boolean IS_DEBUG = true;
+    public static final boolean IS_DEBUG = false;
     @BindView(R.id.async_task)
     Button mAsyncTask;
 
