@@ -21,8 +21,8 @@ public final class MonthUtils {
         Calendar calendar = Calendar.getInstance();
         //获取一年中的第几个月，从0~11
         int index = calendar.get(Calendar.MONTH);
-        int result = index + 1 + i;
-        return (result + 12) % 12;
+        int result = index + i;
+        return (result % 12 + 12) % 12 + 1;
     }
 
     /**
