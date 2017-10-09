@@ -2,8 +2,11 @@ package com.example.hello;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.hello.activity.AppActivity;
 import com.example.hello.activity.ButterKnifeActivity;
@@ -25,156 +28,83 @@ import com.example.hello.activity.TestActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.hello.activity.sensor.GyroscopeActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
+import com.example.hello.adapter.ActivityAdapter;
 import com.example.hello.base.BaseActivity;
+import com.example.hello.model.bean.ActivityBean;
 import com.example.mylibrary.LogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
-
     public static final String TAG = "MainActivity";
-    @BindView(R.id.btn_table_layout)
-    Button mBtnTableLayout;
-    @BindView(R.id.btn_drag_view)
-    Button mBtnDragView;
-    @BindView(R.id.btn_butter_knife)
-    Button mBtnButterKnife;
-    @BindView(R.id.btn_receiver_learn)
-    Button mBtnReceiverLearn;
-    @BindView(R.id.btn_get_time)
-    Button mBtnGetTime;
-    @BindView(R.id.btn_home_key)
-    Button mBtnHomeKey;
-    @BindView(R.id.btn_network_state)
-    Button mBtnNetworkState;
-    @BindView(R.id.btn_system_properties)
-    Button mBtnSystemProperties;
-    @BindView(R.id.btn_app)
-    Button mBtnApp;
-    @BindView(R.id.btn_strict_mode)
-    Button mBtnStrictMode;
-    @BindView(R.id.btn_web_view)
-    Button mBtnWebView;
-    @BindView(R.id.btn_intent)
-    Button mBtnIntent;
-    @BindView(R.id.btn_tab)
-    Button mBtnTab;
-    @BindView(R.id.btn_get_dimension)
-    Button mBtnGetDimension;
-    @BindView(R.id.btn_runtime_permission)
-    Button mBtnRuntimePermission;
-    @BindView(R.id.btn_easy_permissions)
-    Button mBtnEasyPermissions;
-    @BindView(R.id.btn_ftp_upload)
-    Button mBtnFtpUpload;
-    @BindView(R.id.btn_gyroscope)
-    Button mBtnGyroscope;
-    @BindView(R.id.btn_picture)
-    Button mBtnPicture;
-    @BindView(R.id.btn_test)
-    Button mBtnTest;
+
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+    private List<ActivityBean> mData = new ArrayList<>();
+    private ActivityAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initRecyclerView();
         LogUtils.d(TAG, "MainActivity has Created...");
 
+    }
+
+    private void initRecyclerView() {
+        addData();
+        mAdapter = new ActivityAdapter(mData);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+        DividerItemDecoration dividerItemDecoration =
+                new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.recycler_view_divider));
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new ActivityAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                startActivity(mData.get(position).getaClass());
+
+            }
+        });
+
+    }
+
+    private void addData() {
+        mData.add(new ActivityBean(getString(R.string.table_layout_name), TableLayoutActivity.class));
+        mData.add(new ActivityBean(getString(R.string.drag_view_name), DragViewActivity.class));
+        mData.add(new ActivityBean(getString(R.string.butter_knife_name), ButterKnifeActivity.class));
+        mData.add(new ActivityBean(getString(R.string.receiver_learn_name), ReceiverLearnActivity.class));
+        mData.add(new ActivityBean(getString(R.string.get_time_name), GetTimeActivity.class));
+        mData.add(new ActivityBean(getString(R.string.home_key_name), HomeKeyActivity.class));
+        mData.add(new ActivityBean(getString(R.string.network_state_name), NetWorkStateActivity.class));
+        mData.add(new ActivityBean(getString(R.string.system_properties_name), SystemPropertiesActivity.class));
+        mData.add(new ActivityBean(getString(R.string.app_activity_name), AppActivity.class));
+        mData.add(new ActivityBean(getString(R.string.strict_mode_name), StrictModeActivity.class));
+        mData.add(new ActivityBean(getString(R.string.web_view_name), WebViewActivity.class));
+        mData.add(new ActivityBean(getString(R.string.intent_activity_name), IntentActivity.class));
+        mData.add(new ActivityBean(getString(R.string.tab_layout_name), TabLayoutMainActivity.class));
+        mData.add(new ActivityBean(getString(R.string.get_dimension_name), GetDimensionActivity.class));
+        mData.add(new ActivityBean(getString(R.string.runtime_permission_name), RuntimePermissionActivity.class));
+        mData.add(new ActivityBean(getString(R.string.easy_permissions_name), EasyPermissionsActivity.class));
+        mData.add(new ActivityBean(getString(R.string.ftp_upload_name), FtpUploadActivity.class));
+        mData.add(new ActivityBean(getString(R.string.gyroscope_name), GyroscopeActivity.class));
+        mData.add(new ActivityBean(getString(R.string.picture_name), PictureActivity.class));
+        mData.add(new ActivityBean(getString(R.string.test_name), TestActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
-    }
-
-    @OnClick({
-            R.id.btn_table_layout,
-            R.id.btn_drag_view,
-            R.id.btn_butter_knife,
-            R.id.btn_receiver_learn,
-            R.id.btn_get_time,
-            R.id.btn_home_key,
-            R.id.btn_network_state,
-            R.id.btn_system_properties,
-            R.id.btn_app,
-            R.id.btn_strict_mode,
-            R.id.btn_web_view,
-            R.id.btn_intent,
-            R.id.btn_tab,
-            R.id.btn_get_dimension,
-            R.id.btn_runtime_permission,
-            R.id.btn_easy_permissions,
-            R.id.btn_ftp_upload,
-            R.id.btn_gyroscope,
-            R.id.btn_picture,
-            R.id.btn_test
-    })
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_table_layout:
-                startActivity(TableLayoutActivity.class);
-                break;
-            case R.id.btn_drag_view:
-                startActivity(DragViewActivity.class);
-                break;
-            case R.id.btn_butter_knife:
-                startActivity(ButterKnifeActivity.class);
-                break;
-            case R.id.btn_receiver_learn:
-                startActivity(ReceiverLearnActivity.class);
-                break;
-            case R.id.btn_get_time:
-                startActivity(GetTimeActivity.class);
-                break;
-            case R.id.btn_home_key:
-                startActivity(HomeKeyActivity.class);
-                break;
-            case R.id.btn_network_state:
-                startActivity(NetWorkStateActivity.class);
-                break;
-            case R.id.btn_system_properties:
-                startActivity(SystemPropertiesActivity.class);
-                break;
-            case R.id.btn_app:
-                startActivity(AppActivity.class);
-                break;
-            case R.id.btn_strict_mode:
-                startActivity(StrictModeActivity.class);
-                break;
-            case R.id.btn_web_view:
-                startActivity(WebViewActivity.class);
-                break;
-            case R.id.btn_intent:
-                startActivity(IntentActivity.class);
-                break;
-            case R.id.btn_tab:
-                startActivity(TabLayoutMainActivity.class);
-                break;
-            case R.id.btn_get_dimension:
-                startActivity(GetDimensionActivity.class);
-                break;
-            case R.id.btn_runtime_permission:
-                startActivity(RuntimePermissionActivity.class);
-                break;
-            case R.id.btn_easy_permissions:
-                startActivity(EasyPermissionsActivity.class);
-                break;
-            case R.id.btn_ftp_upload:
-                startActivity(FtpUploadActivity.class);
-                break;
-            case R.id.btn_gyroscope:
-                startActivity(GyroscopeActivity.class);
-                break;
-            case R.id.btn_picture:
-                startActivity(PictureActivity.class);
-                break;
-            case R.id.btn_test:
-                startActivity(TestActivity.class);
-            default:
-                break;
-        }
     }
 }

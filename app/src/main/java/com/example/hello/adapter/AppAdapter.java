@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.example.hello.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.hello.R;
 import com.example.hello.model.app.AppInfo;
 
 import java.util.List;

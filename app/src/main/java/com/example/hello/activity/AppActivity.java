@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.hello.AppAdapter;
+import com.example.hello.adapter.AppAdapter;
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
 import com.example.hello.model.app.AppInfo;
