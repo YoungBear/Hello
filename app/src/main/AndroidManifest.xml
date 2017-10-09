@@ -118,9 +118,6 @@
             android:name=".activity.sensor.GyroscopeActivity"
             android:label="@string/gyroscope_name"></activity>
         <activity
-            android:name=".activity.TelephonyInfoActivity"
-            android:label="@string/telephony_info_name"></activity>
-        <activity
             android:name=".activity.PictureActivity"
             android:label="@string/picture_name"
             android:screenOrientation="landscape"

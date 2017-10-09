@@ -21,7 +21,6 @@
     <string name="easy_permissions_name">使用EasyPermissions 处理运行时权限</string>
     <string name="ftp_upload_name">Ftp 上传</string>
     <string name="gyroscope_name">陀螺仪传感器</string>
-    <string name="telephony_info_name">获取手机信号信息</string>
     <string name="picture_name">浏览图片</string>
     <string name="test_name">测试活动</string>
 

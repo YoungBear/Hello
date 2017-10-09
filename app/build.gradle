@@ -52,7 +52,6 @@ dependencies {
 
     //源代码依赖库 start
     compile project(':mylibrary')
-    compile project(':measuresdk')
     //源代码依赖库 end
 
     androidTestCompile("com.android.support.test.espresso:espresso-core:${libs.espressoVersion}", {

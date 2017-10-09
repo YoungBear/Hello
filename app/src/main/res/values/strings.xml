@@ -21,7 +21,6 @@
     <string name="easy_permissions_name">EasyPermissions Activity</string>
     <string name="ftp_upload_name">Ftp Upload Activity</string>
     <string name="gyroscope_name">Gyroscope Sensor</string>
-    <string name="telephony_info_name">Telephony Info Activity</string>
     <string name="picture_name">Show Picture</string>
     <string name="test_name">Test Activity</string>
 

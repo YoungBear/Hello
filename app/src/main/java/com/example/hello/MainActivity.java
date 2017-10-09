@@ -1,6 +1,5 @@
 package com.example.hello;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +21,6 @@ import com.example.hello.activity.RuntimePermissionActivity;
 import com.example.hello.activity.StrictModeActivity;
 import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
-import com.example.hello.activity.TelephonyInfoActivity;
 import com.example.hello.activity.TestActivity;
 import com.example.hello.activity.WebViewActivity;
 import com.example.hello.activity.sensor.GyroscopeActivity;
@@ -73,8 +71,6 @@ public class MainActivity extends BaseActivity {
     Button mBtnFtpUpload;
     @BindView(R.id.btn_gyroscope)
     Button mBtnGyroscope;
-    @BindView(R.id.btn_telephony)
-    Button mBtnTelephony;
     @BindView(R.id.btn_picture)
     Button mBtnPicture;
     @BindView(R.id.btn_test)
@@ -113,7 +109,6 @@ public class MainActivity extends BaseActivity {
             R.id.btn_easy_permissions,
             R.id.btn_ftp_upload,
             R.id.btn_gyroscope,
-            R.id.btn_telephony,
             R.id.btn_picture,
             R.id.btn_test
     })
@@ -172,9 +167,6 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_gyroscope:
                 startActivity(GyroscopeActivity.class);
-                break;
-            case R.id.btn_telephony:
-                startActivity(TelephonyInfoActivity.class);
                 break;
             case R.id.btn_picture:
                 startActivity(PictureActivity.class);
