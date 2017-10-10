@@ -1,5 +1,24 @@
 # 这是一个日常练习的程序
 
+## 屏幕旋转
+
+1. 如果不设置`android:configChanges`，横竖屏切换都会重启Activity，不会调用`onConfigurationChanged()`方法。
+2. `android:configChanges`属性值为`orientation`时，从竖屏切换为横屏时，仍然会重启Activity；从横屏切换为竖屏时，不会重启Activity的生命周期。但是两者都会调用`onConfigurationChanged()`方法；
+3. `android:configChanges`属性为`screenSize`时，从竖屏切换为横屏时，从横屏切换为竖屏时，都会重启Activity的生命周期。都会调用`onConfigurationChanged()`方法。
+4. `android:configChanges`属性为`orientation|screenSize`时，从竖屏切换为横屏时，从横屏切换为竖屏时，都不会重启Activity的生命周期。会调用`onConfigurationChanged()`方法。
+5. 低版本(api 12及以前)，还需要加上`keyboardHidden`以确保横竖屏切换时不会重启Activity。
+
+当Activity中有ListView或者RecyclerView时，如果已经加载完成了数据，Activity重启会导致数据消失，我们需要在onDestroy()保存数据在重启时，恢复数据。可以参考鸿洋大神的文章。
+
+
+
+参考：
+http://blog.csdn.net/lmj623565791/article/details/37936275
+
+http://blog.csdn.net/hanyingjie327/article/details/21246545
+
+
+
 ## 使用EasyPermissions处理动态权限
 github地址：https://github.com/googlesamples/easypermissions
 

@@ -123,6 +123,10 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.FullScreen" />
         <activity android:name=".activity.TestActivity" />
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/recycler_view_name" />
     </application>
 
 </manifest>

@@ -60,7 +60,6 @@ dependencies {
     compile "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
     testCompile "junit:junit:${libs.junitVersion}"
 
-
     //support start
     compile "com.android.support:appcompat-v7:${libs.supportVersion}"
     compile "com.android.support:design:${libs.supportVersion}"
@@ -83,6 +82,7 @@ dependencies {
     //第三方库 end
 
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 

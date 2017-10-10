@@ -1,48 +1,32 @@
-package com.example.hello;
+package com.example.hello.activity;
 
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.util.Log;
+import android.widget.Button;
 
-import com.example.hello.activity.AppActivity;
-import com.example.hello.activity.ButterKnifeActivity;
-import com.example.hello.activity.DragViewActivity;
-import com.example.hello.activity.EasyPermissionsActivity;
-import com.example.hello.activity.FtpUploadActivity;
-import com.example.hello.activity.GetDimensionActivity;
-import com.example.hello.activity.GetTimeActivity;
-import com.example.hello.activity.HomeKeyActivity;
-import com.example.hello.activity.IntentActivity;
-import com.example.hello.activity.NetWorkStateActivity;
-import com.example.hello.activity.PictureActivity;
-import com.example.hello.activity.ReceiverLearnActivity;
-import com.example.hello.activity.RecyclerViewActivity;
-import com.example.hello.activity.RuntimePermissionActivity;
-import com.example.hello.activity.StrictModeActivity;
-import com.example.hello.activity.SystemPropertiesActivity;
-import com.example.hello.activity.TableLayoutActivity;
-import com.example.hello.activity.TestActivity;
-import com.example.hello.activity.WebViewActivity;
+import com.example.hello.R;
 import com.example.hello.activity.sensor.GyroscopeActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.hello.adapter.ActivityAdapter;
 import com.example.hello.base.BaseActivity;
 import com.example.hello.model.bean.ActivityBean;
-import com.example.mylibrary.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
-    public static final String TAG = "MainActivity";
-
+public class RecyclerViewActivity extends BaseActivity {
+    private static final String TAG = "RecyclerViewActivity";
+    @BindView(R.id.btn_load)
+    Button mBtnLoad;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
@@ -51,16 +35,61 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: savedInstanceState: " + savedInstanceState);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recycler_view);
         ButterKnife.bind(this);
         initRecyclerView();
-        LogUtils.d(TAG, "MainActivity has Created...");
+    }
 
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart: ");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "onResume: ");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d(TAG, "onStop: ");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy: ");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState: outState: " + outState);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        Log.d(TAG, "onRestoreInstanceState: savedInstanceState: " + savedInstanceState);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.d(TAG, "onConfigurationChanged: newConfig: " + newConfig);
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @OnClick(R.id.btn_load)
+    public void onViewClicked() {
+        loadData();
     }
 
     private void initRecyclerView() {
-        addData();
         mAdapter = new ActivityAdapter(mData);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -71,17 +100,11 @@ public class MainActivity extends BaseActivity {
         dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.recycler_view_divider));
         mRecyclerView.addItemDecoration(dividerItemDecoration);
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(new ActivityAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-                startActivity(mData.get(position).getaClass());
-
-            }
-        });
-
     }
 
-    private void addData() {
+    private void loadData() {
+        mData.clear();
+
         mData.add(new ActivityBean(getString(R.string.table_layout_name), TableLayoutActivity.class));
         mData.add(new ActivityBean(getString(R.string.drag_view_name), DragViewActivity.class));
         mData.add(new ActivityBean(getString(R.string.butter_knife_name), ButterKnifeActivity.class));
@@ -102,11 +125,10 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.gyroscope_name), GyroscopeActivity.class));
         mData.add(new ActivityBean(getString(R.string.picture_name), PictureActivity.class));
         mData.add(new ActivityBean(getString(R.string.test_name), TestActivity.class));
-        mData.add(new ActivityBean(getString(R.string.recycler_view_name), RecyclerViewActivity.class));
-    }
 
-    private void startActivity(Class<?> clazz) {
-        Intent intent = new Intent(this, clazz);
-        startActivity(intent);
+
+        if (mAdapter != null) {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 }
