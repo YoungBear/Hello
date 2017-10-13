@@ -127,6 +127,9 @@
             android:name=".activity.RecyclerViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/recycler_view_name" />
+        <activity
+            android:name=".activity.EasyRecyclerViewActivity"
+            android:label="@string/easy_recycler_view_name" />
     </application>
 
 </manifest>

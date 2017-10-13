@@ -78,6 +78,9 @@ dependencies {
     compile "com.acker:simplezxing:${libs.simplezxing}"
     compile "pub.devrel:easypermissions:${libs.easypermissions}"
     compile "net.gotev:uploadservice-ftp:${libs.uploadservice}"
+    compile "com.jude:easyrecyclerview:${libs.easyrecyclerview}"
+    compile "com.github.bumptech.glide:glide:${libs.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${libs.glide}"
 
     //第三方库 end
 
