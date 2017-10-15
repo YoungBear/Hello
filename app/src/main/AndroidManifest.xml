@@ -130,6 +130,9 @@
         <activity
             android:name=".activity.EasyRecyclerViewActivity"
             android:label="@string/easy_recycler_view_name" />
+        <activity
+            android:name=".activity.github.SearchUserActivity"
+            android:label="@string/search_user_name" />
     </application>
 
 </manifest>

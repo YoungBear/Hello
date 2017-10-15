@@ -28,6 +28,7 @@ import com.example.hello.activity.SystemPropertiesActivity;
 import com.example.hello.activity.TableLayoutActivity;
 import com.example.hello.activity.TestActivity;
 import com.example.hello.activity.WebViewActivity;
+import com.example.hello.activity.github.SearchUserActivity;
 import com.example.hello.activity.sensor.GyroscopeActivity;
 import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.hello.adapter.ActivityAdapter;
@@ -105,6 +106,7 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.test_name), TestActivity.class));
         mData.add(new ActivityBean(getString(R.string.recycler_view_name), RecyclerViewActivity.class));
         mData.add(new ActivityBean(getString(R.string.easy_recycler_view_name), EasyRecyclerViewActivity.class));
+        mData.add(new ActivityBean(getString(R.string.search_user_name), SearchUserActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {

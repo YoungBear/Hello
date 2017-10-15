@@ -25,6 +25,7 @@
     <string name="test_name">Test Activity</string>
     <string name="recycler_view_name">RecyclerView Activity</string>
     <string name="easy_recycler_view_name">Easy RecyclerView Activity</string>
+    <string name="search_user_name">Search User Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode

@@ -127,7 +127,7 @@
 
 
 # 保留实体类和成员不被混淆(根据具体情况修改entity的路径)
--keep class com.your_path.entity.**{*;}
+-keep class com.example.model.bean.**{*;}
 
 
 # 4. 第三方框架(具体参考最新官方文档)

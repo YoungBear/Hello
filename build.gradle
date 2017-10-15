@@ -50,7 +50,9 @@ ext {
             easypermissions  : "0.4.2",
             uploadservice    : "3.2.5",
             easyrecyclerview : "4.4.2",
-            glide            : "4.2.0"
+            glide            : "4.2.0",
+            volley           : "1.0.0",
+            gson             : "2.8.2"
 
 
     ]
