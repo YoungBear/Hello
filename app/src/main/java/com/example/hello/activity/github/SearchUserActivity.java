@@ -20,7 +20,14 @@ import com.example.hello.R;
 import com.example.hello.adapter.UserAdapter;
 import com.example.hello.base.BaseActivity;
 import com.example.hello.common.GsonRequest;
+import com.example.hello.dataprovider.githubapi.GitHubUrl;
+import com.example.hello.dataprovider.githubapi.KeyConstant;
 import com.example.hello.model.bean.UserBean;
+import com.example.mylibrary.LogUtils;
+import com.example.mylibrary.helper.UrlHelper;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,19 +41,16 @@ public class SearchUserActivity extends BaseActivity {
     EditText mEtUser;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+    @BindView(R.id.smartRefreshLayout)
+    SmartRefreshLayout mSmartRefreshLayout;
 
     private List<UserBean.ItemsBean> mData = new ArrayList<>();
     private UserAdapter mAdapter;
 
-    public static final String HOST = "https://api.github.com";
-    public static final String SEARCH_USER_URL = HOST + "/search/users?q=%s&per_page=100&client_id=%s&client_secret=%s";
-    public static final String USER_REPOS_URL = HOST + "/users/%s/repos?client_id=%s&client_secret=%s";
-
-    //use OAuth application to exceed rate limit from 60 to 5000 per hour
-    public static final String CLIENT_ID_VALUE = "8fc37e449c0a481ee319";//from github OAuth applications
-    public static final String CLIENT_SECRET_VALUE = "80d1703b47b4581a42570e20248d924a9eb57797";
-
     private RequestQueue mRequestQueue;
+    // 搜索的页，从1开始
+    private static final int PER_PAGE_SIZE = 10;
+    private int mPage = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,20 +110,49 @@ public class SearchUserActivity extends BaseActivity {
             }
         });
 
+        mSmartRefreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                LogUtils.d(TAG, "onLoadmore: ");
+                mPage++;
+                loadData(mEtUser.getText().toString());
+
+            }
+
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                LogUtils.d(TAG, "onRefresh: ");
+                mData.clear();
+                mPage = 1;
+                loadData(mEtUser.getText().toString());
+
+            }
+        });
+
     }
 
     private void loadData(String q) {
+        cancelAllRequest();
         if (TextUtils.isEmpty(q)) {
-            cancelAllRequest();
             return;
         }
-        String url = String.format(SEARCH_USER_URL, q, CLIENT_ID_VALUE, CLIENT_SECRET_VALUE);
+        UrlHelper urlHelper = new UrlHelper(GitHubUrl.SEARCH_USER_URL);
+        urlHelper.appendValue(KeyConstant.KEY_WORD, q);
+        urlHelper.appendValue(KeyConstant.PER_PAGE, PER_PAGE_SIZE);
+        urlHelper.appendValue(KeyConstant.PAGE, mPage);
+        urlHelper.appendValue(KeyConstant.CLIENT_ID, KeyConstant.CLIENT_ID_VALUE);
+        urlHelper.appendValue(KeyConstant.CLIENT_SECRET, KeyConstant.CLIENT_SECRET_VALUE);
+        String url = urlHelper.toString();
+
+//        String url = String.format(Locale.CHINA, SEARCH_USER_URL, q, mPage,  CLIENT_ID_VALUE, CLIENT_SECRET_VALUE);
         Log.d(TAG, "loadData: url: " + url);
         GsonRequest<UserBean> request = new GsonRequest<UserBean>(url, UserBean.class, new Response.Listener<UserBean>() {
             @Override
             public void onResponse(UserBean response) {
-                Log.d(TAG, "onResponse: ");
-                mData.clear();
+                LogUtils.d(TAG, "onResponse: ");
+                mSmartRefreshLayout.finishRefresh();
+                mSmartRefreshLayout.finishLoadmore();
+//                mData.clear();
                 mData.addAll(response.getItems());
                 mAdapter.notifyDataSetChanged();
 

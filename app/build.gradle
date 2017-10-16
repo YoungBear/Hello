@@ -83,6 +83,8 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:${libs.glide}"
     compile "com.android.volley:volley:${libs.volley}"
     compile "com.google.code.gson:gson:${libs.gson}"
+    // SmartRefreshLayout https://github.com/scwang90/SmartRefreshLayout
+    compile "com.scwang.smartrefresh:SmartRefreshLayout:${libs.SmartRefreshLayout}"
 
     //第三方库 end
 
