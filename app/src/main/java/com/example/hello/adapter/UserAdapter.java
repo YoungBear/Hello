@@ -44,6 +44,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                 .load(mData.get(position).getAvatar_url())
                 .placeholder(R.drawable.default_image)
                 .into(holder.mItemIvAvatar);
+        holder.mItemTvIndex.setText(String.valueOf(position + 1));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         ImageView mItemIvAvatar;
         @BindView(R.id.item_tv_login)
         TextView mItemTvLogin;
+        @BindView(R.id.item_tv_index)
+        TextView mItemTvIndex;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

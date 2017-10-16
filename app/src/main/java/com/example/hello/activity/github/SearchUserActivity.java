@@ -124,6 +124,7 @@ public class SearchUserActivity extends BaseActivity {
                 LogUtils.d(TAG, "onRefresh: ");
                 mData.clear();
                 mPage = 1;
+                mSmartRefreshLayout.setLoadmoreFinished(false);
                 loadData(mEtUser.getText().toString());
 
             }
@@ -152,6 +153,9 @@ public class SearchUserActivity extends BaseActivity {
                 LogUtils.d(TAG, "onResponse: ");
                 mSmartRefreshLayout.finishRefresh();
                 mSmartRefreshLayout.finishLoadmore();
+                if (response.getItems().size() < PER_PAGE_SIZE) {
+                    mSmartRefreshLayout.setLoadmoreFinished(true);
+                }
 //                mData.clear();
                 mData.addAll(response.getItems());
                 mAdapter.notifyDataSetChanged();
