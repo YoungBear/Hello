@@ -15,5 +15,9 @@
     <color name="recycler_view_item_bg_normal_color">#f5f5f5</color>
     <color name="recycler_view_item_bg_pressed_color">#e2e2e2</color>
 
+    <!-- loading empty start -->
+    <color name="loading_empty_text_color">#313131</color>
+    <!-- loading empty end -->
+
 
 </resources>

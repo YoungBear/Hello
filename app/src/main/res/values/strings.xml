@@ -62,4 +62,8 @@
 
     <string name="load">load</string>
 
+    <!-- loading empty start -->
+    <string name="loading_empty_text">no data</string>
+    <!-- loading empty end -->
+
 </resources>

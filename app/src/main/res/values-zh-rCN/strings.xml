@@ -61,4 +61,8 @@
 
     <string name="load">加载</string>
 
+    <!-- loading empty start -->
+    <string name="loading_empty_text">暂无数据</string>
+    <!-- loading empty end -->
+
 </resources>

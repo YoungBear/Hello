@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="54dp"
+    android:layout_height="@dimen/user_item_height"
     android:background="?android:attr/selectableItemBackground">
     
     <ImageView
         android:id="@+id/item_iv_avatar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/user_item_iv_avatar_width"
+        android:layout_height="@dimen/user_item_iv_avatar_height"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="@dimen/user_item_iv_avatar_margin_left"/>
 
     <TextView
         android:id="@+id/item_tv_login"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/user_item_tv_login_width"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:gravity="center"
         android:layout_toRightOf="@id/item_iv_avatar"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="@dimen/user_item_tv_login_margin_left"/>
 
     <TextView
         android:id="@+id/item_tv_index"
-        android:layout_width="20dp"
+        android:layout_width="@dimen/user_item_tv_index_width"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:gravity="center"
         android:layout_toRightOf="@id/item_tv_login"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="@dimen/user_item_tv_index_margin_left"/>
 
 </RelativeLayout>

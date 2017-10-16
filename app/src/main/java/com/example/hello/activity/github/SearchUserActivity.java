@@ -43,6 +43,8 @@ public class SearchUserActivity extends BaseActivity {
     RecyclerView mRecyclerView;
     @BindView(R.id.smartRefreshLayout)
     SmartRefreshLayout mSmartRefreshLayout;
+    @BindView(R.id.layout_empty)
+    View mLayoutEmpty;
 
     private List<UserBean.ItemsBean> mData = new ArrayList<>();
     private UserAdapter mAdapter;
@@ -145,7 +147,6 @@ public class SearchUserActivity extends BaseActivity {
         urlHelper.appendValue(KeyConstant.CLIENT_SECRET, KeyConstant.CLIENT_SECRET_VALUE);
         String url = urlHelper.toString();
 
-//        String url = String.format(Locale.CHINA, SEARCH_USER_URL, q, mPage,  CLIENT_ID_VALUE, CLIENT_SECRET_VALUE);
         Log.d(TAG, "loadData: url: " + url);
         GsonRequest<UserBean> request = new GsonRequest<UserBean>(url, UserBean.class, new Response.Listener<UserBean>() {
             @Override
@@ -156,9 +157,9 @@ public class SearchUserActivity extends BaseActivity {
                 if (response.getItems().size() < PER_PAGE_SIZE) {
                     mSmartRefreshLayout.setLoadmoreFinished(true);
                 }
-//                mData.clear();
                 mData.addAll(response.getItems());
                 mAdapter.notifyDataSetChanged();
+                checkEmpty();
 
             }
         }, new Response.ErrorListener() {
@@ -173,5 +174,11 @@ public class SearchUserActivity extends BaseActivity {
         mRequestQueue.add(request);
     }
 
-    // TODO: 2017/10/15 分页加载，UrlHelper
+    private void checkEmpty() {
+        if (mData.size() <= 0) {
+            mLayoutEmpty.setVisibility(View.VISIBLE);
+        } else {
+            mLayoutEmpty.setVisibility(View.GONE);
+        }
+    }
 }
