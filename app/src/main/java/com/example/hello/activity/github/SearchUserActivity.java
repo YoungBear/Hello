@@ -84,6 +84,9 @@ public class SearchUserActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mData.clear();
+                mAdapter.notifyDataSetChanged();
+
                 loadData(s.toString());
 
             }
@@ -107,7 +110,8 @@ public class SearchUserActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new UserAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                Log.d(TAG, "onItemClick: position: " + position);
+                LogUtils.d(TAG, "onItemClick: position: " + position);
+                // TODO: 2017/10/16 添加进入个人页面的逻辑
 
             }
         });
@@ -139,6 +143,7 @@ public class SearchUserActivity extends BaseActivity {
         if (TextUtils.isEmpty(q)) {
             return;
         }
+        mSmartRefreshLayout.autoRefresh();
         UrlHelper urlHelper = new UrlHelper(GitHubUrl.SEARCH_USER_URL);
         urlHelper.appendValue(KeyConstant.KEY_WORD, q);
         urlHelper.appendValue(KeyConstant.PER_PAGE, PER_PAGE_SIZE);
@@ -165,7 +170,10 @@ public class SearchUserActivity extends BaseActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "onErrorResponse: ");
+                mSmartRefreshLayout.finishRefresh();
+                mSmartRefreshLayout.finishLoadmore();
+                LogUtils.d(TAG, "onErrorResponse: ");
+                // TODO: 2017/10/16 设置错误页面
 
             }
         });
