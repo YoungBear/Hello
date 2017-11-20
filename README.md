@@ -1,5 +1,23 @@
 # 这是一个日常练习的程序
 
+## Android常见的文件路径
+
+###  Context相关
+
+1. `getCacheDir(): /data/data/<package_name>/cache`
+2. `getFilesDir(): /data/dta/<package_name>/files`
+3. `getObbDir(): /storage/emulated/0/Android/obb/<package_name>`
+4. `getExternalCacheDir(): /storage/emualted/0/Android/data/<package_name>/cache`
+
+### Environment相关
+
+`frameworks/base/core/java/android/os/Environment.java`
+
+1. `getDataDirectory(): /data`
+2. `getDownloadCacheDirectory(): /cache`
+3. `getExternalStorageDirectory(): /storage/emulated/0`
+4. `getRootDirectory(): /system`
+
 ## 屏幕旋转
 
 1. 如果不设置`android:configChanges`，横竖屏切换都会重启Activity，不会调用`onConfigurationChanged()`方法。
