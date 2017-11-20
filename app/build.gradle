@@ -48,6 +48,13 @@ android {
             manifestPlaceholders = [TEST_CHANNEL: "Pptv"]
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "${variant.buildType.name}_${variant.flavorName}_${defaultConfig.versionName}_${getTime()}.apk"
+            outputFileName = fileName
+        }
+    }
 }
 
 dependencies {
@@ -91,6 +98,9 @@ dependencies {
     //第三方库 end
 }
 
+def static getTime() {
+    return new Date().format("yyyyMMddHHmmss", TimeZone.getDefault())
+}
 
 
 
