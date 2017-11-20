@@ -13,6 +13,7 @@ import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.EasyPermissionsActivity;
 import com.example.hello.activity.EasyRecyclerViewActivity;
+import com.example.hello.activity.EnvironmentActivity;
 import com.example.hello.activity.FtpUploadActivity;
 import com.example.hello.activity.GetDimensionActivity;
 import com.example.hello.activity.GetTimeActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.recycler_view_name), RecyclerViewActivity.class));
         mData.add(new ActivityBean(getString(R.string.easy_recycler_view_name), EasyRecyclerViewActivity.class));
         mData.add(new ActivityBean(getString(R.string.search_user_name), SearchUserActivity.class));
+        mData.add(new ActivityBean(getString(R.string.environment_name), EnvironmentActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {

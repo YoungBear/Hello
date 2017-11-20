@@ -133,6 +133,9 @@
         <activity
             android:name=".activity.github.SearchUserActivity"
             android:label="@string/search_user_name" />
+        <activity
+            android:name=".activity.EnvironmentActivity"
+            android:label="@string/environment_name" />
     </application>
 
 </manifest>
