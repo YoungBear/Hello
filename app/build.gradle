@@ -13,22 +13,39 @@ android {
         versionCode cfg.versionCode
         versionName cfg.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        flavorDimensions "default"
+        // 表明按照哪些维度进行打包，默认情况下有buildType：debug和release。另外，还可以按照渠道号，品牌等。
+        // 在productFlavors中需要指定对应的维度
+        flavorDimensions "channel"
     }
 
     //签名信息
     signingConfigs {
+        debug {
+            storeFile file('./debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
         release {
             keyAlias 'ysx_signed'
             keyPassword 'TianHua19920628'
-            storeFile file('../ysx_signed.jks')
+            storeFile file('./ysx_signed.jks')
             storePassword 'TianHua19920628'
         }
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false  //不启用Proguard混淆
+            shrinkResources false //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled false //是否启用zipAlign压缩
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
         release {
             minifyEnabled true
+            shrinkResources true //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled true //是否启用zipAlign压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
             debuggable false
@@ -36,15 +53,15 @@ android {
     }
     productFlavors {
         Dangbei {
-            dimension "default"
+            dimension "channel"
             manifestPlaceholders = [TEST_CHANNEL: "Dangbei"]
         }
         Xiaomi {
-            dimension "default"
+            dimension "channel"
             manifestPlaceholders = [TEST_CHANNEL: "Xiaomi"]
         }
         Pptv {
-            dimension "default"
+            dimension "channel"
             manifestPlaceholders = [TEST_CHANNEL: "Pptv"]
         }
     }
@@ -54,6 +71,10 @@ android {
             def fileName = "${variant.buildType.name}_${variant.flavorName}_${defaultConfig.versionName}_${getTime()}.apk"
             outputFileName = fileName
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
