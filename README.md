@@ -8,6 +8,7 @@
 2. `getFilesDir(): /data/dta/<package_name>/files`
 3. `getObbDir(): /storage/emulated/0/Android/obb/<package_name>`
 4. `getExternalCacheDir(): /storage/emualted/0/Android/data/<package_name>/cache`
+5. `getExternalFilesDir("type"): /storage/emulated/0/Android/data/<package_name>/files/type` 传递一个字符串type，对应路径名。比如`mContext.getExternalFilesDir("music")`返回结果为：`/storage/emulated/0/Android/data/com.example.hello/files/music`
 
 ### Environment相关
 
