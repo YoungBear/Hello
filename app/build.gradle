@@ -6,7 +6,6 @@ def libs = rootProject.ext.libraries // 库
 android {
 
     compileSdkVersion cfg.compileSdkVersion
-    buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId cfg.package
         minSdkVersion cfg.minSdkVersion
@@ -14,6 +13,7 @@ android {
         versionCode cfg.versionCode
         versionName cfg.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "default"
     }
 
     //签名信息
@@ -36,60 +36,59 @@ android {
     }
     productFlavors {
         Dangbei {
+            dimension "default"
             manifestPlaceholders = [TEST_CHANNEL: "Dangbei"]
         }
         Xiaomi {
+            dimension "default"
             manifestPlaceholders = [TEST_CHANNEL: "Xiaomi"]
         }
         Pptv {
+            dimension "default"
             manifestPlaceholders = [TEST_CHANNEL: "Pptv"]
         }
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //源代码依赖库 start
-    compile project(':mylibrary')
+    implementation project(':mylibrary')
     //源代码依赖库 end
 
-    androidTestCompile("com.android.support.test.espresso:espresso-core:${libs.espressoVersion}", {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
-    testCompile "junit:junit:${libs.junitVersion}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${libs.espressoVersion}"
+    testImplementation "junit:junit:${libs.junitVersion}"
+
+    implementation "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
 
     //support start
-    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
-    compile "com.android.support:design:${libs.supportVersion}"
-    compile "com.android.support:recyclerview-v7:${libs.supportVersion}"
-    compile "com.android.support:support-v4:${libs.supportVersion}"
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "com.android.support:design:${libs.supportVersion}"
+    implementation "com.android.support:recyclerview-v7:${libs.supportVersion}"
+    implementation "com.android.support:support-v4:${libs.supportVersion}"
 
     //support end
 
     //第三方库 start
 
-    compile "com.jakewharton:butterknife:${libs.butterknife}"
+    implementation "com.jakewharton:butterknife:${libs.butterknife}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${libs.butterknife}"
 
-    compile "com.shizhefei:HVScrollView:${libs.HVScrollView}"
+    implementation "com.shizhefei:HVScrollView:${libs.HVScrollView}"
 
-    compile "com.acker:simplezxing:${libs.simplezxing}"
-    compile "pub.devrel:easypermissions:${libs.easypermissions}"
-    compile "net.gotev:uploadservice-ftp:${libs.uploadservice}"
-    compile "com.jude:easyrecyclerview:${libs.easyrecyclerview}"
-    compile "com.github.bumptech.glide:glide:${libs.glide}"
+    implementation "com.acker:simplezxing:${libs.simplezxing}"
+    implementation "pub.devrel:easypermissions:${libs.easypermissions}"
+    implementation "net.gotev:uploadservice-ftp:${libs.uploadservice}"
+    implementation "com.jude:easyrecyclerview:${libs.easyrecyclerview}"
+    implementation "com.github.bumptech.glide:glide:${libs.glide}"
     annotationProcessor "com.github.bumptech.glide:compiler:${libs.glide}"
-    compile "com.android.volley:volley:${libs.volley}"
-    compile "com.google.code.gson:gson:${libs.gson}"
+    implementation "com.android.volley:volley:${libs.volley}"
+    implementation "com.google.code.gson:gson:${libs.gson}"
     // SmartRefreshLayout https://github.com/scwang90/SmartRefreshLayout
-    compile "com.scwang.smartrefresh:SmartRefreshLayout:${libs.SmartRefreshLayout}"
+    implementation "com.scwang.smartrefresh:SmartRefreshLayout:${libs.SmartRefreshLayout}"
 
     //第三方库 end
-
-
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 
