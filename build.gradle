@@ -29,11 +29,10 @@ task clean(type: Delete) {
 ext {
 
     configuration = [
-            compileSdkVersion: 25,
-            buildToolsVersion: "26.0.2",
+            compileSdkVersion: 26,
             package          : "com.example.hello",
             minSdkVersion    : 17,
-            targetSdkVersion : 25,
+            targetSdkVersion : 26,
 
             versionCode      : 1,
             versionName      : "1.0"
@@ -44,7 +43,7 @@ ext {
             constraintVersion : "1.0.2",
             junitVersion      : "4.12",
 
-            supportVersion    : "25.3.1",
+            supportVersion    : "27.0.1",
 
             butterknife       : "8.8.1",
             HVScrollView      : "1.0.1",
