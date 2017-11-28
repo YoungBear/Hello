@@ -1,12 +1,50 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+    ext {
+
+        cfg = [
+                compileSdkVersion: 26,
+                package          : "com.example.hello",
+                minSdkVersion    : 17,
+                targetSdkVersion : 26,
+
+                versionCode      : 1,
+                versionName      : "1.0"
+        ]
+
+        libs = [
+                gradle               : "3.0.1",
+
+                espressoVersion   : "3.0.1",
+                constraintVersion : "1.0.2",
+                junitVersion      : "4.12",
+
+                supportVersion    : "27.0.1",
+
+                butterknife       : "8.8.1",
+                HVScrollView      : "1.0.1",
+                simplezxing       : "1.3",
+                easypermissions   : "0.4.2",
+                uploadservice     : "3.2.5",
+                easyrecyclerview  : "4.4.2",
+                glide             : "4.2.0",
+                volley            : "1.0.0",
+                gson              : "2.8.2",
+                SmartRefreshLayout: "1.0.3"
+
+
+        ]
+
+    }
+
     repositories {
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "com.android.tools.build:gradle:${libs.gradle}"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,37 +64,4 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-ext {
 
-    configuration = [
-            compileSdkVersion: 26,
-            package          : "com.example.hello",
-            minSdkVersion    : 17,
-            targetSdkVersion : 26,
-
-            versionCode      : 1,
-            versionName      : "1.0"
-    ]
-
-    libraries = [
-            espressoVersion   : "3.0.1",
-            constraintVersion : "1.0.2",
-            junitVersion      : "4.12",
-
-            supportVersion    : "27.0.1",
-
-            butterknife       : "8.8.1",
-            HVScrollView      : "1.0.1",
-            simplezxing       : "1.3",
-            easypermissions   : "0.4.2",
-            uploadservice     : "3.2.5",
-            easyrecyclerview  : "4.4.2",
-            glide             : "4.2.0",
-            volley            : "1.0.0",
-            gson              : "2.8.2",
-            SmartRefreshLayout: "1.0.3"
-
-
-    ]
-
-}

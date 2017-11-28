@@ -1,8 +1,5 @@
 apply plugin: 'com.android.application'
 
-def cfg = rootProject.ext.configuration // 配置
-def libs = rootProject.ext.libraries // 库
-
 android {
 
     compileSdkVersion cfg.compileSdkVersion
