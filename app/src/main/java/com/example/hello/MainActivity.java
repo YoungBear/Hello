@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.hello.activity.AppActivity;
+import com.example.hello.activity.AssetsActivity;
 import com.example.hello.activity.ButterKnifeActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.EasyPermissionsActivity;
@@ -109,6 +110,7 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.easy_recycler_view_name), EasyRecyclerViewActivity.class));
         mData.add(new ActivityBean(getString(R.string.search_user_name), SearchUserActivity.class));
         mData.add(new ActivityBean(getString(R.string.environment_name), EnvironmentActivity.class));
+        mData.add(new ActivityBean(getString(R.string.assets_name), AssetsActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {

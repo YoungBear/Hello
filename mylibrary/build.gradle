@@ -25,6 +25,7 @@ dependencies {
     testImplementation "junit:junit:${libs.junitVersion}"
 
     implementation "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
+    implementation "com.google.code.gson:gson:${libs.gson}"
 
     //support start
     implementation "com.android.support:appcompat-v7:${libs.supportVersion}"

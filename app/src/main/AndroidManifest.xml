@@ -136,6 +136,9 @@
         <activity
             android:name=".activity.EnvironmentActivity"
             android:label="@string/environment_name" />
+        <activity
+            android:name=".activity.AssetsActivity"
+            android:label="@string/assets_name" />
     </application>
 
 </manifest>
