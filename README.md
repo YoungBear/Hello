@@ -91,6 +91,44 @@ public final class AssetsUtils {
 
 首先，通过getString方法，获取文件的字符串，然后，通过泛型方法getJsonObject，来将解析字符串，转换为实体类对象。
 
+DemoActivity为[AssetsActivity](https://github.com/YoungBear/Hello/blob/master/app/src/main/java/com/example/hello/activity/AssetsActivity.java)。对应实体类代码为：[RepositoriesBean](https://github.com/YoungBear/Hello/blob/master/app/src/main/java/com/example/hello/model/bean/RepositoriesBean.java)。可以使用AS的插件GsonFormat来自动生成。Activity代码为：
+
+```
+public class AssetsActivity extends BaseActivity {
+    private static final String TAG = "AssetsActivity";
+
+    private static final String REPOSITORIES_FILE_NAME = "github_repositories.json";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_assets);
+        testJsonObject();
+    }
+
+    /**
+     *
+     */
+    private void testJsonObject() {
+        RepositoriesBean repositoriesBean = AssetsUtils.getJsonObject(REPOSITORIES_FILE_NAME,
+                AssetsActivity.this, RepositoriesBean.class);
+
+        boolean incomplete_results = repositoriesBean.isIncomplete_results();
+        int total_count = repositoriesBean.getTotal_count();
+        List<RepositoriesBean.ItemsBean> items = repositoriesBean.getItems();
+
+        LogUtils.d(TAG, "testJsonObject, incomplete_results: " + incomplete_results
+                + "\ntotal_count: " + total_count
+                + "\nitems.size(): " + items.size());
+
+    }
+
+
+}
+```
+
+该Demo使用Github的[搜索仓库API](https://api.github.com/search/repositories?q=java+user:youngbear+language:java)的返回结果作为实体类。更过Github API的内容请参考[GitHub API 学习笔记 Search API](http://blog.csdn.net/next_second/article/details/78238328)和[Github 开发官方地址](https://developer.github.com/v3/)。
+
 
 
 
