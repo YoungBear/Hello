@@ -36,7 +36,11 @@ public class HttpRequestManager {
         private static final HttpRequestManager sInstance = new HttpRequestManager();
     }
 
-    public void httpStringGet(String url, Callback<String> callback) {
-        mStrategy.httpStringGet(url, callback);
+    public void httpStringGet(String url, Object tag, Callback<String> callback) {
+        mStrategy.httpStringGet(url, tag, callback);
+    }
+
+    public void cancelRequest(Object tag) {
+        mStrategy.cancelRequest(tag);
     }
 }

@@ -39,6 +39,12 @@ public class HttpActivity extends BaseActivity {
         mTvContent.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
+    @Override
+    protected void onDestroy() {
+        HttpRequestManager.getInstance().cancelRequest(TAG);
+        super.onDestroy();
+    }
+
     @OnClick({R.id.btn_okhttp})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -52,9 +58,7 @@ public class HttpActivity extends BaseActivity {
     }
 
     private void doOkhttpRequest(String url) {
-        HttpRequestManager requestManager = HttpRequestManager.getInstance();
-        requestManager.init();
-        requestManager.httpStringGet(url, new Callback<String>() {
+        HttpRequestManager.getInstance().httpStringGet(url, TAG,  new Callback<String>() {
             @Override
             public void onResponse(String response) {
                 LogUtils.d(TAG, "onResponse: response: " + response);

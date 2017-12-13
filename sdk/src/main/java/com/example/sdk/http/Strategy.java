@@ -7,5 +7,19 @@ package com.example.sdk.http;
  */
 
 public interface Strategy {
-    void httpStringGet(String url, final Callback<String> callback);
+    /**
+     * http请求，返回字符串，使用get方法
+     * @param url
+     * @param tag
+     * @param callback
+     */
+    void httpStringGet(String url, Object tag, Callback<String> callback);
+
+
+    /**
+     * 根据标签，取消网络请求
+     *
+     * @param tag
+     */
+    void cancelRequest(Object tag);
 }

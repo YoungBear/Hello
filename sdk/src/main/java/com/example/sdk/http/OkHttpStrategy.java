@@ -17,15 +17,18 @@ import okhttp3.Response;
 public class OkHttpStrategy implements Strategy {
 
     private Handler mHandler;
+    private OkHttpClient mOkHttpClient;
 
     public OkHttpStrategy(Handler handler) {
         mHandler = handler;
+        mOkHttpClient = new OkHttpClient();
     }
+
     @Override
-    public void httpStringGet(String url, final Callback<String> callback) {
-        OkHttpClient mOkHttpClient = new OkHttpClient();
+    public void httpStringGet(String url, Object tag, final Callback<String> callback) {
         final okhttp3.Request request = new okhttp3.Request.Builder()
                 .url(url)
+                .tag(tag)
                 .build();
         Call call = mOkHttpClient.newCall(request);
         call.enqueue(new okhttp3.Callback() {
@@ -54,5 +57,19 @@ public class OkHttpStrategy implements Strategy {
             }
         });
 
+    }
+
+    @Override
+    public void cancelRequest(Object tag) {
+        for (Call call : mOkHttpClient.dispatcher().queuedCalls()) {
+            if (tag.equals(call.request().tag())) {
+                call.cancel();
+            }
+        }
+        for (Call call : mOkHttpClient.dispatcher().runningCalls()) {
+            if (tag.equals(call.request().tag())) {
+                call.cancel();
+            }
+        }
     }
 }
