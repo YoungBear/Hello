@@ -79,7 +79,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     //源代码依赖库 start
-    implementation project(':mylibrary')
+    implementation project(':sdk')
     //源代码依赖库 end
 
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${libs.espressoVersion}"

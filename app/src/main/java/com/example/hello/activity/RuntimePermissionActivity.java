@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.acker.simplezxing.activity.CaptureActivity;
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
-import com.example.mylibrary.LogUtils;
+import com.example.sdk.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

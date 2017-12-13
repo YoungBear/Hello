@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.mylibrary.LogUtils;
+import com.example.sdk.LogUtils;
 
 /**
  * Created by ysx on 2017/6/1.

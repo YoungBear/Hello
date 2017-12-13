@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.example.hello.MainActivity;
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
-import com.example.mylibrary.LogUtils;
+import com.example.sdk.LogUtils;
 
 import net.gotev.uploadservice.UploadNotificationConfig;
 import net.gotev.uploadservice.ftp.FTPUploadRequest;

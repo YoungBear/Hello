@@ -36,7 +36,7 @@ import com.example.hello.activity.tab_layout.TabLayoutMainActivity;
 import com.example.hello.adapter.ActivityAdapter;
 import com.example.hello.base.BaseActivity;
 import com.example.hello.model.bean.ActivityBean;
-import com.example.mylibrary.LogUtils;
+import com.example.sdk.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;

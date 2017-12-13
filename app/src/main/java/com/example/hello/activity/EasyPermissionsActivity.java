@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
-import com.example.mylibrary.LogUtils;
+import com.example.sdk.LogUtils;
 
 import java.util.List;
 

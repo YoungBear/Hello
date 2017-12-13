@@ -5,8 +5,8 @@ import android.os.Bundle;
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
 import com.example.hello.model.bean.RepositoriesBean;
-import com.example.mylibrary.LogUtils;
-import com.example.mylibrary.utils.AssetsUtils;
+import com.example.sdk.LogUtils;
+import com.example.sdk.utils.AssetsUtils;
 
 import java.util.List;
 
