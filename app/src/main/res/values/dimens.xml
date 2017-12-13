@@ -29,5 +29,9 @@
     <dimen name="user_item_tv_index_margin_left">20dp</dimen>
     <!-- search user end -->
 
+    <!-- http start -->
+    <dimen name="bottom_content_max_height">300dp</dimen>
+    <!-- http end -->
+
 
 </resources>

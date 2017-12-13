@@ -19,6 +19,7 @@ import com.example.hello.activity.FtpUploadActivity;
 import com.example.hello.activity.GetDimensionActivity;
 import com.example.hello.activity.GetTimeActivity;
 import com.example.hello.activity.HomeKeyActivity;
+import com.example.hello.activity.HttpActivity;
 import com.example.hello.activity.IntentActivity;
 import com.example.hello.activity.NetWorkStateActivity;
 import com.example.hello.activity.PictureActivity;
@@ -111,6 +112,7 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.search_user_name), SearchUserActivity.class));
         mData.add(new ActivityBean(getString(R.string.environment_name), EnvironmentActivity.class));
         mData.add(new ActivityBean(getString(R.string.assets_name), AssetsActivity.class));
+        mData.add(new ActivityBean(getString(R.string.http_name), HttpActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {

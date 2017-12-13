@@ -27,6 +27,8 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:${libs.constraintVersion}"
     implementation "com.google.code.gson:gson:${libs.gson}"
 
+    implementation "com.squareup.okhttp3:okhttp:${libs.okhttp}"
+
     //support start
     implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
 

@@ -15,7 +15,7 @@ buildscript {
         ]
 
         libs = [
-                gradle               : "3.0.1",
+                gradle            : "3.0.1",
 
                 espressoVersion   : "3.0.1",
                 constraintVersion : "1.0.2",
@@ -32,7 +32,8 @@ buildscript {
                 glide             : "4.2.0",
                 volley            : "1.0.0",
                 gson              : "2.8.2",
-                SmartRefreshLayout: "1.0.3"
+                SmartRefreshLayout: "1.0.3",
+                okhttp            : "3.9.1"
 
 
         ]

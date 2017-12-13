@@ -132,21 +132,21 @@
 
 # 4. 第三方框架(具体参考最新官方文档)
 
-# ButterKnife 8.8.1
+# 4.1 ButterKnife 8.8.1
 -keep public class * implements butterknife.Unbinder { public <init>(**, android.view.View); }
 
 -keep class butterknife.*
 -keepclasseswithmembernames class * { @butterknife.* <methods>; }
 -keepclasseswithmembernames class * { @butterknife.* <fields>; }
 
-# greenDAO 3.2.2
+# 4.2 greenDAO 3.2.2
 -dontwarn org.greenrobot.greendao.database.**
 -keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
     public static java.lang.String TABLENAME;
 }
 -keep class **$Properties
 
-# Glide 4.0.0
+# 4.3 Glide 4.0.0
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.AppGlideModule
 -keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
@@ -154,7 +154,7 @@
   public *;
 }
 
-# Gson 2.8.1
+# 4.4 Gson 2.8.1
 ##---------------Begin: proguard configuration for Gson  ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
@@ -178,10 +178,19 @@
 
 ##---------------End: proguard configuration for Gson  ----------
 
-# 百度地图
+# 4.5 百度地图
 -keep class com.baidu.** {*;}
 -keep class vi.com.** {*;}
 -dontwarn com.baidu.**
 
-# uploadservice
+# 4.6 uploadservice
 -keep class net.gotev.uploadservice.** { *; }
+
+# 4.7 okhttp
+# okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+
+# okio
+-dontwarn okio.**
+-keep class okio.**{*;}
