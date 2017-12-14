@@ -69,7 +69,7 @@ public class MyApplication extends Application {
     }
 
     private void initHttpRequestManager() {
-        HttpRequestManager.getInstance().init();
+        HttpRequestManager.getInstance().init(getApplicationContext());
     }
 
 }

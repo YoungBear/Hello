@@ -13,6 +13,14 @@
         android:layout_centerHorizontal="true"
         android:text="@string/okhttp" />
 
+    <Button
+        android:id="@+id/btn_volley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_okhttp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/volley" />
+
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
@@ -21,5 +29,12 @@
         android:layout_centerHorizontal="true"
         android:maxHeight="@dimen/bottom_content_max_height"
         android:scrollbars="vertical" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

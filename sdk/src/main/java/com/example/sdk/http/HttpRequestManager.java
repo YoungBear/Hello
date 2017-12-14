@@ -1,5 +1,6 @@
 package com.example.sdk.http;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -14,14 +15,15 @@ public class HttpRequestManager {
 
     private HttpStrategy mHttpStrategy;
     private Handler mHandler;
+    private Context mContext;
 
     /**
      * 初始化动作
-     *
      */
-    public void init() {
+    public void init(Context context) {
         mHandler = new Handler(Looper.getMainLooper());
         mHttpStrategy = new OkHttpStrategy(mHandler);
+        mContext = context.getApplicationContext();
     }
 
     public static HttpRequestManager getInstance() {
@@ -42,5 +44,9 @@ public class HttpRequestManager {
 
     public void cancelRequest(Object tag) {
         mHttpStrategy.cancelRequest(tag);
+    }
+
+    public void setHttpStrategy(HttpStrategy httpStrategy) {
+        mHttpStrategy = httpStrategy;
     }
 }

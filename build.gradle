@@ -30,7 +30,7 @@ buildscript {
                 uploadservice     : "3.2.5",
                 easyrecyclerview  : "4.4.2",
                 glide             : "4.2.0",
-                volley            : "1.0.0",
+                volley            : "1.1.0",
                 gson              : "2.8.2",
                 SmartRefreshLayout: "1.0.3",
                 okhttp            : "3.9.1"

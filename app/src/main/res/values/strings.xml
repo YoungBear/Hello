@@ -71,6 +71,8 @@
 
     <!-- http start -->
     <string name="okhttp">okhttp</string>
+    <string name="volley">volley</string>
+    <string name="network_failed">Network Failed</string>
     <!-- http end -->
 
 </resources>

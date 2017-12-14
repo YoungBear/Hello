@@ -70,6 +70,8 @@
 
     <!-- http start -->
     <string name="okhttp">okhttp</string>
+    <string name="volley">volley</string>
+    <string name="network_failed">请求失败</string>
     <!-- http end -->
 
 </resources>
