@@ -6,7 +6,7 @@ package com.example.sdk.http;
  * @description
  */
 
-public interface Strategy {
+public interface HttpStrategy {
     /**
      * http请求，返回字符串，使用get方法
      * @param url

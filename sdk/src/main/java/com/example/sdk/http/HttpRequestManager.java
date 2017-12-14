@@ -12,7 +12,7 @@ import android.os.Looper;
 public class HttpRequestManager {
     private static final String TAG = "HttpRequestManager";
 
-    private Strategy mStrategy;
+    private HttpStrategy mHttpStrategy;
     private Handler mHandler;
 
     /**
@@ -21,7 +21,7 @@ public class HttpRequestManager {
      */
     public void init() {
         mHandler = new Handler(Looper.getMainLooper());
-        mStrategy = new OkHttpStrategy(mHandler);
+        mHttpStrategy = new OkHttpStrategy(mHandler);
     }
 
     public static HttpRequestManager getInstance() {
@@ -37,10 +37,10 @@ public class HttpRequestManager {
     }
 
     public void httpStringGet(String url, Object tag, Callback<String> callback) {
-        mStrategy.httpStringGet(url, tag, callback);
+        mHttpStrategy.httpStringGet(url, tag, callback);
     }
 
     public void cancelRequest(Object tag) {
-        mStrategy.cancelRequest(tag);
+        mHttpStrategy.cancelRequest(tag);
     }
 }

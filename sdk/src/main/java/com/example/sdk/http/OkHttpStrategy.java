@@ -14,7 +14,7 @@ import okhttp3.Response;
  * @description
  */
 
-public class OkHttpStrategy implements Strategy {
+public class OkHttpStrategy implements HttpStrategy {
 
     private Handler mHandler;
     private OkHttpClient mOkHttpClient;
