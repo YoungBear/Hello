@@ -2,10 +2,16 @@ package com.example.sdk.http;
 
 import android.os.Handler;
 
+import com.example.sdk.utils.JsonUtils;
+
 import java.io.IOException;
+import java.util.Map;
 
 import okhttp3.Call;
+import okhttp3.FormBody;
+import okhttp3.Headers;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
 
 /**
@@ -57,6 +63,89 @@ public class OkHttpStrategy implements HttpStrategy {
             }
         });
 
+    }
+
+    @Override
+    public <T> void httpGet(String url, final Class<T> clazz, Object tag,
+                            Map<String, String> headers, final Callback<T> callback) {
+        Request.Builder builder = new Request.Builder();
+        if (headers != null) {
+            builder.headers(Headers.of(headers));
+        }
+        final Request request = builder
+                .url(url)
+                .tag(tag)
+                .build();
+        Call call = mOkHttpClient.newCall(request);
+        call.enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onFailure(e.getMessage());
+                    }
+                });
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                final T t = JsonUtils.parseJson(str, clazz);
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onResponse(t);
+                    }
+                });
+
+            }
+        });
+    }
+
+    @Override
+    public <T> void httpPost(String url, final Class<T> clazz, Object tag, Map<String, String> headers,
+                             Map<String, String> params, final Callback<T> callback) {
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+        if (params != null && params.size() > 0) {
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                formBodyBuilder.add(entry.getKey(), entry.getValue());
+            }
+        }
+        Request.Builder builder = new Request.Builder();
+        if (headers != null) {
+            builder.headers(Headers.of(headers));
+        }
+        final Request request = builder
+                .url(url)
+                .tag(tag)
+                .post(formBodyBuilder.build())
+                .build();
+        Call call = mOkHttpClient.newCall(request);
+        call.enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(final Call call, final IOException e) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onFailure(e.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                final T t = JsonUtils.parseJson(str, clazz);
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.onResponse(t);
+                    }
+                });
+            }
+        });
     }
 
     @Override

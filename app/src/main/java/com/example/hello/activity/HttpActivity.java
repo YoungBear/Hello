@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.hello.R;
 import com.example.hello.base.BaseActivity;
+import com.example.hello.model.bean.AddressBean;
 import com.example.sdk.LogUtils;
 import com.example.sdk.http.Callback;
 import com.example.sdk.http.HttpRequestManager;
@@ -110,21 +111,26 @@ public class HttpActivity extends BaseActivity {
         LogUtils.d(TAG, "doHttpRequest: url: " + url);
         showLoading();
         HttpRequestManager.getInstance().cancelRequest(TAG);
-        HttpRequestManager.getInstance().httpStringGet(url, TAG, new Callback<String>() {
-            @Override
-            public void onResponse(String response) {
-                LogUtils.d(TAG, "onResponse: response: " + response);
-                mTvContent.setText(response);
-                dismissLoading();
-            }
+        HttpRequestManager.getInstance().httpGet(
+                url,
+                AddressBean.class,
+                TAG,
+                null,
+                new Callback<AddressBean>() {
+                    @Override
+                    public void onResponse(AddressBean response) {
+                        LogUtils.d(TAG, "onResponse: response: " + response);
+                        mTvContent.setText(response.toString());
+                        dismissLoading();
+                    }
 
-            @Override
-            public void onFailure(String message) {
-                LogUtils.d(TAG, "onFailure: message: " + message);
-                dismissLoading();
-                Toast.makeText(HttpActivity.this,
-                        getString(R.string.network_failed), Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                    public void onFailure(String message) {
+                        LogUtils.d(TAG, "onFailure: message: " + message);
+                        dismissLoading();
+                        Toast.makeText(HttpActivity.this,
+                                getString(R.string.network_failed), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import java.util.Map;
+
 /**
  * @author ysx
  * @date 2017/12/13
@@ -40,6 +42,15 @@ public class HttpRequestManager {
 
     public void httpStringGet(String url, Object tag, Callback<String> callback) {
         mHttpStrategy.httpStringGet(url, tag, callback);
+    }
+
+    public <T> void httpGet(String url, final Class<T> clazz, Object tag, Map<String, String> headers, final Callback<T> callback) {
+        mHttpStrategy.httpGet(url, clazz, tag, headers, callback);
+    }
+
+    public <T> void httpPost(String url, final Class<T> clazz, Object tag, Map<String, String> headers,
+                             Map<String, String> params, final Callback<T> callback) {
+        mHttpStrategy.httpPost(url, clazz, tag, headers, params, callback);
     }
 
     public void cancelRequest(Object tag) {
