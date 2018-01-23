@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.sdk.LogUtils;
@@ -65,6 +66,7 @@ public class MyApplication extends Application {
     private void init() {
         UploadService.NAMESPACE = "com.example.hello";
         initHttpRequestManager();
+        LogUtils.LOG_LEVEL = Log.VERBOSE;
 
     }
 
