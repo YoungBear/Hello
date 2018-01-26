@@ -29,6 +29,7 @@
     <string name="environment_name">Environment 活动</string>
     <string name="assets_name">Assets 活动</string>
     <string name="http_name">网络请求封装</string>
+    <string name="dialog_fragment_name">DialogFragment 活动</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -73,5 +74,10 @@
     <string name="volley">volley</string>
     <string name="network_failed">请求失败</string>
     <!-- http end -->
+
+    <!-- DialogFragment start -->
+    <string name="dialog_positive_text">确定</string>
+    <string name="dialog_negative_text">取消</string>
+    <!-- DialogFragment end -->
 
 </resources>

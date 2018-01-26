@@ -29,6 +29,7 @@
     <string name="environment_name">Environment Activity</string>
     <string name="assets_name">Assets Activity</string>
     <string name="http_name">Http Activity</string>
+    <string name="dialog_fragment_name">DialogFragment Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode
@@ -74,5 +75,10 @@
     <string name="volley">volley</string>
     <string name="network_failed">Network Failed</string>
     <!-- http end -->
+
+    <!-- DialogFragment start -->
+    <string name="dialog_positive_text">Ok</string>
+    <string name="dialog_negative_text">Cancel</string>
+    <!-- DialogFragment end -->
 
 </resources>
