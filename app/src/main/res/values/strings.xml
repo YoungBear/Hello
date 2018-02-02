@@ -30,6 +30,7 @@
     <string name="assets_name">Assets Activity</string>
     <string name="http_name">Http Activity</string>
     <string name="dialog_fragment_name">DialogFragment Activity</string>
+    <string name="date_picker_name">DatePicker Activity</string>
 
     <string name="start_async_task">Start new AsyncTask</string>
     <string name="helper_text">Start the async task, <b>rotate the screen</b> and wait for a bit. do adb logcat | grep StrictMode

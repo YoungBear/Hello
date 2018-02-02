@@ -145,6 +145,9 @@
         <activity
             android:name=".activity.DialogFragmentActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DatePickerActivity"
+            android:label="@string/date_picker_name" />
     </application>
 
 </manifest>

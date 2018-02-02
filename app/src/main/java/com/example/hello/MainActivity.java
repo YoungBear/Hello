@@ -11,6 +11,7 @@ import android.view.View;
 import com.example.hello.activity.AppActivity;
 import com.example.hello.activity.AssetsActivity;
 import com.example.hello.activity.ButterKnifeActivity;
+import com.example.hello.activity.DatePickerActivity;
 import com.example.hello.activity.DialogFragmentActivity;
 import com.example.hello.activity.DragViewActivity;
 import com.example.hello.activity.EasyPermissionsActivity;
@@ -115,6 +116,7 @@ public class MainActivity extends BaseActivity {
         mData.add(new ActivityBean(getString(R.string.assets_name), AssetsActivity.class));
         mData.add(new ActivityBean(getString(R.string.http_name), HttpActivity.class));
         mData.add(new ActivityBean(getString(R.string.dialog_fragment_name), DialogFragmentActivity.class));
+        mData.add(new ActivityBean(getString(R.string.date_picker_name), DatePickerActivity.class));
     }
 
     private void startActivity(Class<?> clazz) {
