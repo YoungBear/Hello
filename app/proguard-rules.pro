@@ -34,7 +34,7 @@
 -keepattributes *Annotation*
 
 # 忽略警告
--ignorewarning
+#-ignorewarning
 
 # 保护泛型不被混淆
 -keepattributes Signature
